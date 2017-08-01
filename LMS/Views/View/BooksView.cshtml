@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "BooksView";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@section Styles {
+    <link href="@Url.Content("~/Content/CSS/BooksView.css")" rel="stylesheet" type="text/css" />
+}
+
+<table id="data" border="1">
+    <tr>
+        <th>ID</th>
+        <th>Title </th>
+        <th>ISBN </th>
+
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.ID</td>
+            <td>@d.title</td>
+            <td>@d.ISBN</td>
+
+
+        </tr>
+    }
+</table>
+
+
+

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href=" ~ /Content/CSS/BooksView.css">
+    @RenderSection("Styles", false)
+</head>
+<body>
+    <header>
+        <img id="logo" src="/Content/Pictures/Books-Icon.png" />
+        <label id="label">Library Managment System</label>
+        @if (@Session["UserName"] != null)
+        {
+            <label id="user">Welcome @Session["UserName"].ToString()</label>
+        }
+
+    </header>
+    <div id="container">
+        <div id="sidebar">
+            <button class="sbtn">Profile</button>
+            @using (Html.BeginForm("AddBook", "Book", FormMethod.Get))
+            {
+                <input class="sbtn " type="submit" value="Add Book" />
+            }
+            @using (Html.BeginForm("Logout", "Home"))
+            {
+                <input type="submit" value="Logout" class="sbtn" />
+            }
+        </div>
+
+
+        <div id="main">
+            @RenderBody()
+
+        </div>
+    </div>
+
+</body>
+</html>

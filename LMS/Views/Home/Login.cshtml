@@ -1,0 +1,29 @@
+﻿@model LMS.Models.User
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_SignLayout.cshtml";
+}
+@section Styles {
+    <link href="@Url.Content("~/Content/CSS/Login.css")" rel="stylesheet" type="text/css" />
+}
+
+
+<div id="information">
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+        @Html.LabelFor(a => a.name)
+        @Html.TextBoxFor(a => a.name)
+        <br />
+        @Html.LabelFor(a => a.password)
+        @Html.PasswordFor(a => a.password)
+        <br />
+        <input type="submit" value="Login" />
+    }
+    @using (Html.BeginForm("Signup", "Home", FormMethod.Get))
+    {
+        <input type="submit" value="Register" />
+    }
+</div>
+
+
+

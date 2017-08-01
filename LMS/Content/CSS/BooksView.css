@@ -1,0 +1,64 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+header {
+	min-height: 120px;
+}
+#logo {
+	float: left;
+	
+}
+#label {
+	margin-top:100px;
+}
+footer{
+	background: blue;
+}
+#information{
+	padding-top: 250px;
+	margin-left: 250px;
+}
+#submit {
+	width: 50px;
+	height: 30px;
+	margin-top: 20px;
+	margin-left: 200px;
+}
+#sidebar{
+	background: green;
+	min-height: 800px;
+	width: 200px;
+	float: left;
+}
+#main{
+	background: yellow;
+	min-height: 800px;
+	margin-left: 200px;
+}
+#data{
+	position: absolute;
+	margin-left: 250px;
+	margin-top: 100px;
+}
+#user{
+	margin-right: 50px;
+	float: right;
+	margin-top: 50px;
+}
+th{
+	width: 50px;
+	padding: 50px;
+
+}
+td{
+	width:50px;
+	padding: 50px;
+}
+
+.sbtn{
+	height: 50px;
+	width: 200px;
+	font-family: "Times New Roman", Times, serif;
+	font-size:30px;
+}

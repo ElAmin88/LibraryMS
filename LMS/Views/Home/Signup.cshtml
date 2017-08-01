@@ -1,0 +1,19 @@
+﻿@model LMS.Models.User
+@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/_SignLayout.cshtml";
+}
+
+
+<div id="information">
+    @using (Html.BeginForm("Signup", "Home", FormMethod.Post))
+    {
+        @Html.LabelFor(a => a.name)
+        @Html.TextBoxFor(a => a.name)
+        <br />
+        @Html.LabelFor(a => a.password)
+        @Html.PasswordFor(a => a.password)
+        <br />
+        <input type="submit" value="Register" />
+    }
+</div>

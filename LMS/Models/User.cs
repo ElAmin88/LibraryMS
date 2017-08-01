@@ -11,8 +11,10 @@ namespace LMS.Models
         [Key]
         public int ID { set; get; }
         [MinLength(5)]
+        [Required(ErrorMessage = "Please Enter Name more than 5 Characters")]
         public string name { set; get; }
         [MinLength(8)]
+        [Required(ErrorMessage = "Please Enter Name more than 8 characters")]
         public string password { set; get; }
     }
 }
