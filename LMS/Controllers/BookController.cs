@@ -28,5 +28,9 @@ namespace LMS.Controllers
             }
             return View();
         }
+        public void test()
+        {
+
+        }
     }
 }
