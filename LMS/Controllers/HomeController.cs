@@ -5,26 +5,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-
+using LMS.Core;
 namespace LMS.Controllers
 {
     public class HomeController : Controller
     {
         // GET: Home
 
-        LibraryContext ctx = new LibraryContext();
         public ActionResult Login()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Login(User objUser)
+        public ActionResult Login(User user)
         {
 
-            User existUser = ctx.Users.FirstOrDefault(a => a.name == objUser.name && a.password== objUser.password );
-            if (existUser != null)
+            if (Users.Check(user))
             {
-                Session["UserName"] = objUser.name.ToString();
+                Session["UserName"] = user.name.ToString();
                 return RedirectToAction("BooksView","View");
             }
                 
@@ -44,8 +42,7 @@ namespace LMS.Controllers
             { 
                 if (ModelState.IsValid)
                 {
-                    ctx.Users.Add(user);
-                    ctx.SaveChanges();
+                    Users.Add(user);
                     return RedirectToAction("Login","Home");
                 }           
             }

@@ -11,6 +11,8 @@
         <th>ID</th>
         <th>Title </th>
         <th>ISBN </th>
+        <th>Delete</th>
+        <th>Edit</th>
 
     </tr>
     @foreach (var d in Model)
@@ -19,9 +21,15 @@
             <td>@d.ID</td>
             <td>@d.title</td>
             <td>@d.ISBN</td>
-
+            <td>
+                @Html.ActionLink("Edit", "EditBook","Book", new { id= d.ID},null)
+            </td>
+            <td>
+             @Html.ActionLink("Delete", "RemoveBook", "Book", new { id = d.ID },null)    
+            </td>
 
         </tr>
+        
     }
 </table>
 

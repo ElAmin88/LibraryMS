@@ -19,7 +19,14 @@
     </header>
     <div id="container">
         <div id="sidebar">
-            <button class="sbtn">Profile</button>
+            @using (Html.BeginForm("BooksView", "View", FormMethod.Get))
+            {
+                <input class="sbtn " type="submit" value="Books" />
+            }
+            @using (Html.BeginForm("ProfileView", "View", FormMethod.Get))
+            {
+                <input class="sbtn " type="submit" value="Profile" />
+            }
             @using (Html.BeginForm("AddBook", "Book", FormMethod.Get))
             {
                 <input class="sbtn " type="submit" value="Add Book" />

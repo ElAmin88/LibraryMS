@@ -20,3 +20,7 @@ D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\System.Web.Mvc.xml
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\LMS.csprojResolveAssemblyReference.cache
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\LMS.dll
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\LMS.pdb
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\LMS.Core.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\LMS.Model.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\LMS.Core.pdb
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\LMS.Model.pdb

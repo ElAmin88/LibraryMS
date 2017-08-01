@@ -1,0 +1,10 @@
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Debug\LMS.Model.dll.config
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Debug\LMS.Model.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Debug\LMS.Model.pdb
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Debug\EntityFramework.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Debug\EntityFramework.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.csprojResolveAssemblyReference.cache
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.pdb

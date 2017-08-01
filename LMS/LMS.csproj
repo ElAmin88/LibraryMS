@@ -124,9 +124,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Book.cs" />
-    <Compile Include="Models\LibraryContext.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +131,9 @@
     <Content Include="packages.config" />
     <Content Include="Views\Home\Signup.cshtml" />
     <Content Include="Views\Book\AddBook.cshtml" />
+    <Content Include="Views\View\ProfileView.cshtml" />
+    <Content Include="Views\Book\RemoveBook.cshtml" />
+    <Content Include="Views\Book\EditBook.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -143,6 +143,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LMS.Core\LMS.Core.csproj">
+      <Project>{7634dd28-d458-4bd1-ab7a-2b523b4d9027}</Project>
+      <Name>LMS.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LMS.Model\LMS.Model.csproj">
+      <Project>{3d87e2e2-ac4f-4158-b01c-cc2bae6e1bf6}</Project>
+      <Name>LMS.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
