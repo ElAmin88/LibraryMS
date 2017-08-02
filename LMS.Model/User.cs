@@ -16,5 +16,14 @@ namespace LMS.Models
         [MinLength(8)]
         [Required(ErrorMessage = "Please Enter Name more than 8 characters")]
         public string password { set; get; }
+
+        public int age { set; get; }
+
+        public string type { set; get; }
+
+        [Display(Name = "Email address")]
+        [Required(ErrorMessage = "The email address is required")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        public string email { get; set; }
     }
 }

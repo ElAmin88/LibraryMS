@@ -22,7 +22,9 @@ namespace LMS.Controllers
 
             if (Users.Check(user))
             {
+                user = Users.GetByName(user.name);
                 Session["UserName"] = user.name.ToString();
+                Session["Type"] = user.type.ToString();
                 return RedirectToAction("BooksView","View");
             }
                 

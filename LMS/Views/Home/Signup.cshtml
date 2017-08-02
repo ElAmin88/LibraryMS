@@ -14,6 +14,15 @@
         @Html.LabelFor(a => a.password)
         @Html.PasswordFor(a => a.password)
         <br />
+        @Html.LabelFor(a => a.email)
+        @Html.TextBoxFor(a => a.email)
+        <br />
+        @Html.LabelFor(a=>a.age)
+        @Html.TextBoxFor(a=>a.age)
+        <br />
+        @Html.LabelFor(a => a.type)
+        @Html.TextBoxFor(a => a.type)
+
         <input type="submit" value="Register" />
     }
 </div>

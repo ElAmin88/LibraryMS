@@ -47,5 +47,10 @@ namespace LMS.Controllers
             return RedirectToAction("BooksView", "View");
 
         }
+        public ActionResult EditAndDelete()
+        {
+
+            return View(Books.GetAll());
+        }
     }
 }
