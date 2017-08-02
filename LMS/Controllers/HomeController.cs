@@ -25,7 +25,7 @@ namespace LMS.Controllers
                 user = Users.GetByName(user.name);
                 Session["UserName"] = user.name.ToString();
                 Session["Type"] = user.type.ToString();
-                return RedirectToAction("BooksView","View");
+                return RedirectToAction("BooksView","User");
             }
                 
             

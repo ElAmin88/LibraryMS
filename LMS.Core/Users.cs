@@ -48,5 +48,28 @@ namespace LMS.Core
             ctx.Users.Remove(u);
             ctx.SaveChanges();
         }
+        public static List<User> Search(string search)
+        { 
+            List <User> users =new List<User>();
+            foreach(User u in ctx.Users)
+            {
+                if (u.name.Contains(search) && u.type!="admin")
+                {
+                    users.Add(u);
+                }
+            }
+            return users;
+        }
+
+        public static void AddFriendByName(User user,string name)
+        {
+            User friend = Users.GetByName(name);
+            if(user.friends==null)
+            {
+                user.friends = new List<User>();
+            }
+            user.friends.Add(friend);
+        }
+        
     }
 }

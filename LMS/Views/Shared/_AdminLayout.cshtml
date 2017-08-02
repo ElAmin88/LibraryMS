@@ -27,9 +27,16 @@
             {
                 <input class="sbtn " type="submit" value="Profile" />
             }
-            @using (Html.BeginForm("FriendsView", "User", FormMethod.Get))
+            @if(@Session["Type"].ToString()!="user")
             {
-                <input class="sbtn " type="submit" value="Friends" />
+                using (Html.BeginForm("AddBook", "Book", FormMethod.Get))
+                {
+                    <input class="sbtn " type="submit" value="Add Book" />
+                }
+                using (Html.BeginForm("EditAndDelete", "Book", FormMethod.Get))
+                {
+                    <input class="sbtn " type="submit" value="Edit/Delete Book" />
+                }
             }
             
             @using (Html.BeginForm("Logout", "Home"))

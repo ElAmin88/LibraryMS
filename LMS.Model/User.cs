@@ -25,5 +25,7 @@ namespace LMS.Models
         [Required(ErrorMessage = "The email address is required")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string email { get; set; }
+
+        public List<User> friends { get; set; }
     }
 }

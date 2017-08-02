@@ -1,6 +1,6 @@
 ﻿@{
     ViewBag.Title = "BooksView";
-
+    
     if (@Session["Type"].ToString() != "user")
     {
         Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -9,7 +9,7 @@
     {
         Layout = "~/Views/Shared/_UserLayout.cshtml";
     }
-}
+ }
 @section Styles {
     <link href="@Url.Content("~/Content/CSS/BooksView.css")" rel="stylesheet" type="text/css" />
 }
@@ -19,8 +19,7 @@
         <th>ID</th>
         <th>Title </th>
         <th>ISBN </th>
-        <th>Delete</th>
-        <th>Edit</th>
+        
 
     </tr>
     @foreach (var d in Model)
@@ -29,15 +28,12 @@
             <td>@d.ID</td>
             <td>@d.title</td>
             <td>@d.ISBN</td>
-            <td>
-                @Html.ActionLink("Edit", "EditBook", "Book", new { id = d.ID }, null)
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "RemoveBook", "Book", new { id = d.ID }, null)
-            </td>
+            
 
         </tr>
-
+        
     }
 </table>
+
+
 

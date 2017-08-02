@@ -12,3 +12,4 @@ D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.Migrations.Init
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.csproj.GenerateResource.Cache
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.Migrations.addAgeToUser.resources
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.Migrations.AddedEmailTypeAndAge.resources
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.Migrations.AddedFriends.resources

@@ -112,14 +112,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_SignLayout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Shared\_MainLayout.cshtml" />
-    <Content Include="Views\View\BooksView.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\User\BooksView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ViewController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -130,11 +130,12 @@
     <Content Include="packages.config" />
     <Content Include="Views\Home\Signup.cshtml" />
     <Content Include="Views\Book\AddBook.cshtml" />
-    <Content Include="Views\View\ProfileView.cshtml" />
+    <Content Include="Views\User\ProfileView.cshtml" />
     <Content Include="Views\Book\RemoveBook.cshtml" />
     <Content Include="Views\Book\EditBook.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Book\EditAndDelete.cshtml" />
+    <Content Include="Views\User\FriendsView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

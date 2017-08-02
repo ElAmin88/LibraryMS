@@ -23,11 +23,10 @@ namespace LMS.Controllers
             if (ModelState.IsValid)
             {
                 Books.Add(book);
-                return RedirectToAction("BooksView", "View");
+                return RedirectToAction("BooksView", "User");
             }
             return View();
         }
-
 
         public ActionResult EditBook(int id)
         {
@@ -38,13 +37,13 @@ namespace LMS.Controllers
         public ActionResult EditBook(Book book)
         {
             Books.Update(book);
-            return RedirectToAction("BooksView", "View");
+            return RedirectToAction("EditAndDelete");
         }
         
         public ActionResult RemoveBook(int id)
         {
             Books.RemoveByID(id);
-            return RedirectToAction("BooksView", "View");
+            return RedirectToAction("EditAndDelete");
 
         }
         public ActionResult EditAndDelete()
