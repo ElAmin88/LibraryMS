@@ -14,6 +14,13 @@
     <link href="@Url.Content("~/Content/CSS/BooksView.css")" rel="stylesheet" type="text/css" />
 }
 
+@using (Html.BeginForm("BooksView", "User", FormMethod.Get))
+{
+    @Html.TextBox("search")
+    <input type="submit" name="submit" value="search" />
+
+
+}
 <table id="data" border="1">
     <tr>
         <th>ID</th>

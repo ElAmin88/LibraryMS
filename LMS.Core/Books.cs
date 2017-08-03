@@ -47,16 +47,24 @@ namespace LMS.Core
 
         public static void Update(Book book )
         {
-            /*ctx.Books.Attach(book);
-            var entry = ctx.Entry(book);
-            entry.Property(e => e.title).IsModified = true;
-            entry.Property(e => e.ISBN).IsModified = true;*/
             Book b = GetByID(book.ID);
             b.ISBN = book.ISBN;
             b.title = book.title;
             ctx.SaveChanges();
             
         }
+        public static List<Book> Search(string search)
+        {
+            if (search == null)
+            {
+                return Books.GetAll();
+            }
+            
+            List<Book> books = ctx.Books.Where(a => a.title.Contains(search)).ToList();
+            
+            return books;
+        }
+
 
     }
 }

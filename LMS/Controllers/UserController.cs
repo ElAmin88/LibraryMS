@@ -10,14 +10,11 @@ namespace LMS.Controllers
 {
     public class UserController : Controller
     {
-        public ActionResult BooksView()
+        public ActionResult BooksView(string search)
         {
             if (Session["UserName"] != null)
             {
-
-                return View(Books.GetAll());
-
-
+                return View(Books.Search(search));
             }
             return RedirectToAction("Login", "Home");
         }
@@ -38,23 +35,9 @@ namespace LMS.Controllers
         public ActionResult FriendsView(string search)
         {
             User u = Users.GetByName(Session["UserName"].ToString());
-            if (u.friends == null)
-            {
-                ViewBag.Friends = new List<User>();
-            }
-            else
-            {
-                ViewBag.Friends = u.friends;
-            }
+            ViewBag.Friends = u.friends;
             
-            if(search == null)
-            {
-                return View(new List<User>());
-            }
-            else
-            {
-                return View(Users.Search(search));
-            }
+            return View(Users.Search(search));
                         
         }
 

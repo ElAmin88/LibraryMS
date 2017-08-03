@@ -27,5 +27,13 @@ namespace LMS.Models
         public string email { get; set; }
 
         public List<User> friends { get; set; }
+
+        public User()
+        {
+            if (friends == null)
+            {
+                friends = new List<User>();
+            }
+        }
     }
 }

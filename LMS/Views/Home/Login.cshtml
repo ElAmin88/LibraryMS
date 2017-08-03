@@ -13,9 +13,11 @@
     {
         @Html.LabelFor(a => a.name)
         @Html.TextBoxFor(a => a.name)
+        @Html.ValidationMessageFor(a => a.name)
         <br />
         @Html.LabelFor(a => a.password)
         @Html.PasswordFor(a => a.password)
+        @Html.ValidationMessageFor(a => a.password)
         <br />
         <input type="submit" value="Login" />
     }
