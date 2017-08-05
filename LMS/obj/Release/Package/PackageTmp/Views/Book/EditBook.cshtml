@@ -1,0 +1,28 @@
+﻿@model LMS.Models.Book
+
+@{
+    ViewBag.Title = "EditBook";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section Styles {
+    <link href="@Url.Content("~/Content/CSS/BooksView.css")" rel="stylesheet" type="text/css" />
+    <div id="main">
+        @using (Html.BeginForm("EditBook", "Book", FormMethod.Post))
+        {
+            <label>ID : @Model.ID</label> <br />
+            @Html.LabelFor(a => a.title)
+            @Html.TextBoxFor(a => a.title)
+            <br />
+            @Html.LabelFor(a => a.ISBN)
+            @Html.TextBoxFor(a => a.ISBN)
+            <input type="submit" value="Update" />
+        }
+
+    </div>
+}
+
+
+
+
+

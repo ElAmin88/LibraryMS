@@ -1,0 +1,20 @@
+﻿@model LMS.Models.Book
+@{
+    ViewBag.Title = "RemoveBook";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@section Styles {
+    <link href="@Url.Content("~/Content/CSS/BooksView.css")" rel="stylesheet" type="text/css" />
+    <div id="main">
+        @using (Html.BeginForm("Update", "Book", FormMethod.Post))
+        {
+            <label>ID : @Model.ID</label>
+            @Html.TextBoxFor(a => a.title)
+            <br />
+            @Html.TextBoxFor(a => a.ISBN)
+            <input type="submit" value="Update" />
+        }
+        
+    </div>
+}
+

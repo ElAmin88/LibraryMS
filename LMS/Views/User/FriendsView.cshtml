@@ -1,11 +1,9 @@
 ﻿@model IEnumerable<LMS.Models.User>
 @{
     ViewBag.Title = "FriendsView";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-@section Styles {
-    <link href="@Url.Content("~/Content/CSS/BooksView.css")" rel="stylesheet" type="text/css" />
-}
+
 @using (Html.BeginForm("FriendsView", "User", FormMethod.Get))
 {
     @Html.TextBox("search")

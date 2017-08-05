@@ -1,43 +1,31 @@
 ﻿@{
     ViewBag.Title = "BooksView";
 
-    if (@Session["Type"].ToString() != "user")
-    {
-        Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    }
-    else
-    {
-        Layout = "~/Views/Shared/_UserLayout.cshtml";
-    }
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
 }
-@section Styles {
-    <link href="@Url.Content("~/Content/CSS/BooksView.css")" rel="stylesheet" type="text/css" />
-}
+<div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab" style="overflow: hidden;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>ISBN</th>
+            </tr>
+        </thead>
+        @foreach (var d in Model)
+        {
+            <tr>
+                <td>@d.ID</td>
+                <td>@d.title</td>
+                <td>@d.ISBN</td>
+                <td class="text-center"><span class="glyphicon glyphicon-edit"></span>@Html.ActionLink("Edit", "EditBook", "Book", new { id = d.ID }, null)
+                <span class="glyphicon glyphicon-remove"></span>@Html.ActionLink("Delete", "RemoveBook", "Book", new { id = d.ID }, null)</td>
 
-<table id="data" border="1">
-    <tr>
-        <th>ID</th>
-        <th>Title </th>
-        <th>ISBN </th>
-        <th>Delete</th>
-        <th>Edit</th>
+            </tr>
 
-    </tr>
-    @foreach (var d in Model)
-    {
-        <tr>
-            <td>@d.ID</td>
-            <td>@d.title</td>
-            <td>@d.ISBN</td>
-            <td>
-                @Html.ActionLink("Edit", "EditBook", "Book", new { id = d.ID }, null)
-            </td>
-            <td>
-                @Html.ActionLink("Delete", "RemoveBook", "Book", new { id = d.ID }, null)
-            </td>
+        }
+    </table>
+</div>
 
-        </tr>
-
-    }
-</table>
 

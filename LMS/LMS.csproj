@@ -90,6 +90,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Header.css" />
+    <Content Include="Content\Login.css" />
+    <Content Include="Content\Sidebar.css" />
+    <Content Include="Content\Signup.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -101,18 +105,20 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\LMS.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Header.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Sidebar.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_SignLayout.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\User\BooksView.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -133,9 +139,11 @@
     <Content Include="Views\User\ProfileView.cshtml" />
     <Content Include="Views\Book\RemoveBook.cshtml" />
     <Content Include="Views\Book\EditBook.cshtml" />
-    <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Book\EditAndDelete.cshtml" />
     <Content Include="Views\User\FriendsView.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Shared\_AdminSidebar.cshtml" />
+    <Content Include="Views\Shared\_UserSidebar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.css"/>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Library Managment System</h1>
+        <img id="logo" src="/Content/Pictures/Books-Icon.png" />
+        @if (@Session["UserName"] != null)
+        {
+            <label id="user">Welcome @Session["UserName"].ToString()</label>
+        }
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                @using (Html.BeginForm("BooksView", "User", FormMethod.Get))
+                {
+                    <input class="sbtn " type="submit" value="Books" />
+                }
+                @using (Html.BeginForm("ProfileView", "User", FormMethod.Get))
+                {
+                    <input class="sbtn " type="submit" value="Profile" />
+                }
+                @if (@Session["Type"].ToString() != "user")
+                {
+                    using (Html.BeginForm("AddBook", "Book", FormMethod.Get))
+                    {
+                        <input class="sbtn " type="submit" value="Add Book" />
+                    }
+                    using (Html.BeginForm("EditAndDelete", "Book", FormMethod.Get))
+                    {
+                        <input class="sbtn " type="submit" value="Edit/Delete Book" />
+                    }
+                }
+
+                @using (Html.BeginForm("Logout", "Home"))
+                {
+                    <input type="submit" value="Logout" class="sbtn" />
+                }
+            </div>
+            <div class="col-sm-8">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+</body>
+</html>

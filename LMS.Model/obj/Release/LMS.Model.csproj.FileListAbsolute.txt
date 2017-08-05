@@ -1,0 +1,15 @@
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Release\LMS.Model.dll.config
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Release\LMS.Model.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Release\LMS.Model.pdb
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Release\EntityFramework.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Release\EntityFramework.SqlServer.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Release\EntityFramework.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Release\EntityFramework.SqlServer.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Release\LMS.Model.Migrations.InitialCreate.resources
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Release\LMS.Model.Migrations.addAgeToUser.resources
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Release\LMS.Model.Migrations.AddedEmailTypeAndAge.resources
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Release\LMS.Model.Migrations.AddedFriends.resources
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Release\LMS.Model.csproj.GenerateResource.Cache
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Release\LMS.Model.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Release\LMS.Model.pdb
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Release\LMS.Model.csprojResolveAssemblyReference.cache

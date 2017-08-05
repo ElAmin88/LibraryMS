@@ -1,17 +1,8 @@
 ﻿@{
     ViewBag.Title = "BooksView";
     
-    if (@Session["Type"].ToString() != "user")
-    {
-        Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    }
-    else
-    {
-        Layout = "~/Views/Shared/_UserLayout.cshtml";
-    }
- }
-@section Styles {
-    <link href="@Url.Content("~/Content/CSS/BooksView.css")" rel="stylesheet" type="text/css" />
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    
 }
 
 @using (Html.BeginForm("BooksView", "User", FormMethod.Get))
@@ -21,26 +12,28 @@
 
 
 }
-<table id="data" border="1">
-    <tr>
-        <th>ID</th>
-        <th>Title </th>
-        <th>ISBN </th>
-        
 
-    </tr>
-    @foreach (var d in Model)
-    {
-        <tr>
-            <td>@d.ID</td>
-            <td>@d.title</td>
-            <td>@d.ISBN</td>
-            
+<div class="row col-md-6 col-md-offset-2 custyle">
 
-        </tr>
-        
-    }
-</table>
+    <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>ISBN</th>
+            </tr>
+        </thead>
+        @foreach (var d in Model)
+        {
+            <tr>
+                <td>@d.ID</td>
+                <td>@d.title</td>
+                <td>@d.ISBN</td>
+            </tr>
+
+        }
+    </table>
+</div>
 
 
 

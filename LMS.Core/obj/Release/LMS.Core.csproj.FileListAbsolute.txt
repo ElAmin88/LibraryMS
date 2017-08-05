@@ -1,0 +1,12 @@
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Release\LMS.Core.dll.config
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Release\LMS.Core.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Release\LMS.Core.pdb
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Release\EntityFramework.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Release\EntityFramework.SqlServer.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Release\LMS.Model.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Release\LMS.Model.pdb
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Release\EntityFramework.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Release\EntityFramework.SqlServer.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\obj\Release\LMS.Core.csprojResolveAssemblyReference.cache
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\obj\Release\LMS.Core.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\obj\Release\LMS.Core.pdb

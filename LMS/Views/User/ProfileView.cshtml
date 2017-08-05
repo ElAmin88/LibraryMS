@@ -1,17 +1,8 @@
 ﻿@model LMS.Models.User
 @{
     ViewBag.Title = "ProfileView";
-    if (@Session["Type"].ToString() != "user")
-    {
-        Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    }
-    else
-    {
-        Layout = "~/Views/Shared/_UserLayout.cshtml";
-    }
-}
-@section Styles {
-    <link href="@Url.Content("~/Content/CSS/BooksView.css")" rel="stylesheet" type="text/css" />
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
 }
 
 <div id="data">

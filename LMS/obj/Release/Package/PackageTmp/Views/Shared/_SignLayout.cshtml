@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @RenderSection("Styles", false)
+</head>
+<body>
+    <header>
+        <img id="logo" src="/Content/Pictures/Books-Icon.png" />
+        <label id="label">Library Managment System</label>
+
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

@@ -8,11 +8,6 @@ namespace LMS.Models
 {
     public class LibraryContext :DbContext
     {
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            Database.SetInitializer<LibraryContext>(null);
-            base.OnModelCreating(modelBuilder);
-        }
         public LibraryContext() : base() 
         { 
         
