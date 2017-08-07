@@ -33,6 +33,9 @@ namespace LMS.Models
 
         public string address { get; set; }
 
-        public bool gender { get; set; } 
+        public bool gender { get; set; }
+        public ICollection<Friend> Friends { get; set; }
+        public ICollection<Reservation> Reservations { get; set; }
+
     }
 }

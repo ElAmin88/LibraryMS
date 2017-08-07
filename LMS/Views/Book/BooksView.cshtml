@@ -7,7 +7,7 @@
 
 <div class="row" style="z-index:-1">
     <div class="col-sm-3">
-    @using (Html.BeginForm("BooksView", "User", FormMethod.Get))
+    @using (Html.BeginForm("BooksView", "Book", FormMethod.Get))
     {
         @Html.TextBox("search")
         <input type="submit" name="submit" value="search" />
@@ -30,7 +30,7 @@
                     <td>@d.title</td>
                     <td>@d.ISBN</td>
                     <td>
-                        @using (Html.BeginForm("BooksView", "User", FormMethod.Post))
+                        @using (Html.BeginForm("BooksView", "Book", FormMethod.Post))
                         {
                             @Html.ActionLink("Reserve", "Reserve", "Book", new { id = d.ID }, null)
                         }

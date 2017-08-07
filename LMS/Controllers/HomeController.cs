@@ -10,13 +10,12 @@ namespace LMS.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
-
         public ActionResult Login()
         {
             return View();
         }
         [HttpPost]
+
         public ActionResult Login(User user)
         {
 
@@ -25,7 +24,7 @@ namespace LMS.Controllers
                 user = Users.GetByName(user.name);
                 Session["UserName"] = user.name.ToString();
                 Session["Type"] = user.type.ToString();
-                return RedirectToAction("BooksView","User");
+                return RedirectToAction("BooksView","Book");
             }
                 
             
@@ -51,7 +50,6 @@ namespace LMS.Controllers
           
             return View();
         }
-
 
         public ActionResult LogOut()
         {

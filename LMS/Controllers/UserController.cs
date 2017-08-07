@@ -10,14 +10,7 @@ namespace LMS.Controllers
 {
     public class UserController : Controller
     {
-        public ActionResult BooksView(string search)
-        {
-            if (Session["UserName"] != null)
-            {
-                return View(Books.Search(search));
-            }
-            return RedirectToAction("Login", "Home");
-        }
+        
 
         public ActionResult ProfileView()
         {

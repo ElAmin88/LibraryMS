@@ -11,6 +11,15 @@ namespace LMS.Controllers
     public class BookController : Controller
     {
         // GET: Book
+        public ActionResult BooksView(string search)
+        {
+            if (Session["UserName"] != null)
+            {
+                return View(Books.Search(search));
+            }
+            return RedirectToAction("Login", "Home");
+        }
+
         public ActionResult AddBook()
         {
             return View();
@@ -23,7 +32,7 @@ namespace LMS.Controllers
             if (ModelState.IsValid)
             {
                 Books.Add(book);
-                return RedirectToAction("BooksView", "User");
+                return RedirectToAction("BooksView");
             }
             return View();
         }
@@ -33,6 +42,7 @@ namespace LMS.Controllers
 
             return View(Books.GetByID(id));
         }
+
         [HttpPost]
         public ActionResult EditBook(Book book)
         {
@@ -46,6 +56,7 @@ namespace LMS.Controllers
             return RedirectToAction("EditAndDelete");
 
         }
+
         public ActionResult EditAndDelete()
         {
 
@@ -64,7 +75,7 @@ namespace LMS.Controllers
              User u = Users.GetByName(Session["UserName"].ToString());
 
              Books.Reserve(u, id);
-             return RedirectToAction("BooksView", "User");
+             return RedirectToAction("BooksView");
         }
     }
 }

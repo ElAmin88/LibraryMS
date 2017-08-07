@@ -14,5 +14,7 @@ namespace LMS.Models
         public string title { set; get; }
         public string details { set; get; }
 
+        public ICollection<Reservation> Reservations { get; set; }
+
     }
 }

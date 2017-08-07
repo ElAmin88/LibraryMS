@@ -10,12 +10,15 @@ namespace LMS.Models
 {
     public class Reservation
     {
-        [Required]
         [Key, Column(Order = 0)]
         public int userID { get; set; }
-        [Required]
+
         [Key, Column(Order = 1)]
         public int bookID { get; set; }
 
+        [ForeignKey("userID")]
+        public User user1 { get; set; }
+        [ForeignKey("bookID")]
+        public Book book { get; set; }
     }
 }

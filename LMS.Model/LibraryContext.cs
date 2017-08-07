@@ -3,6 +3,7 @@ using LMS.Model.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Web;
 
@@ -10,6 +11,14 @@ namespace LMS.Models
 {
     public class LibraryContext :DbContext
     {
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasMany(u=> u.Friends).WithRequired(u=> u.user1).WillCascadeOnDelete(false); //add this line code
+            modelBuilder.Entity<User>().HasMany(u => u.Friends).WithRequired(u => u.user2).WillCascadeOnDelete(false);
+
+
+
+        }
         public LibraryContext() : base() 
         { 
         
