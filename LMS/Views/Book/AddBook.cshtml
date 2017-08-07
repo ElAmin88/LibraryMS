@@ -5,17 +5,23 @@
 
 }
 
-<div id="data">
-    @using (Html.BeginForm("AddBook", "Book", FormMethod.Post))
-    {
-        @Html.LabelFor(a => a.title)
-        @Html.TextBoxFor(a => a.title)
-        <br />
-        @Html.LabelFor(a => a.ISBN)
-        @Html.TextBoxFor(a => a.ISBN)
-        <br />
-        <input type="submit" value="Add Book" />
-    }
-</div>
+@using (Html.BeginForm("AddBook", "Book", FormMethod.Post))
+{
+    <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tr>
+            <td>@Html.TextBoxFor(a => a.title)</td>
+            <td>@Html.TextBoxFor(a => a.ISBN)</td>
+            <td><input type="submit" value="Add Book" /></td>
+        </tr>
+    </table>
+        
+}
 
 

@@ -51,5 +51,20 @@ namespace LMS.Controllers
 
             return View(Books.GetAll());
         }
+
+        public ActionResult ReservedBooks()
+        {
+            User u = Users.GetByName(Session["UserName"].ToString());
+            
+            return View(Books.ReservedBooks(u));
+        }
+        
+        public ActionResult Reserve(int id)
+        {
+             User u = Users.GetByName(Session["UserName"].ToString());
+
+             Books.Reserve(u, id);
+             return RedirectToAction("BooksView", "User");
+        }
     }
 }

@@ -5,35 +5,43 @@
     
 }
 
-@using (Html.BeginForm("BooksView", "User", FormMethod.Get))
-{
-    @Html.TextBox("search")
-    <input type="submit" name="submit" value="search" />
+<div class="row" style="z-index:-1">
+    <div class="col-sm-3">
+    @using (Html.BeginForm("BooksView", "User", FormMethod.Get))
+    {
+        @Html.TextBox("search")
+        <input type="submit" name="submit" value="search" />
+    }
+    </div>
+    <div class="col-sm-6">
+        <table class="table table-striped custab " >
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>ISBN</th>
+                    <th>Reserve</th>
+                </tr>
+            </thead>
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.ID</td>
+                    <td>@d.title</td>
+                    <td>@d.ISBN</td>
+                    <td>
+                        @using (Html.BeginForm("BooksView", "User", FormMethod.Post))
+                        {
+                            @Html.ActionLink("Reserve", "Reserve", "Book", new { id = d.ID }, null)
+                        }
+                    </td>
+                </tr>
 
+            }
+        </table>
+    </div>
+</div> 
 
-}
-
-<div class="row col-md-6 col-md-offset-2 custyle">
-
-    <table class="table table-striped custab">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>ISBN</th>
-            </tr>
-        </thead>
-        @foreach (var d in Model)
-        {
-            <tr>
-                <td>@d.ID</td>
-                <td>@d.title</td>
-                <td>@d.ISBN</td>
-            </tr>
-
-        }
-    </table>
-</div>
 
 
 

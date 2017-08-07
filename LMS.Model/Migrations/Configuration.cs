@@ -9,7 +9,8 @@ namespace LMS.Model.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+
+            AutomaticMigrationsEnabled = true;
             ContextKey = "LMS.Models.LibraryContext";
         }
 

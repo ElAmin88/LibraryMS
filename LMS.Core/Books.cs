@@ -65,6 +65,28 @@ namespace LMS.Core
             return books;
         }
 
+        public static void Reserve(User u,int id)
+        {
+            Reservation r = new Reservation
+            {
+                bookID = id,
+                userID = u.ID
+            };
+            ctx.Reservations.Add(r);
+            ctx.SaveChanges();
+        }
 
+        public static List<Book> ReservedBooks(User u)
+        {
+            List<int> BooksID = ctx.Reservations.Where(a => a.userID == u.ID).Select(b => b.bookID).ToList();
+
+            List<Book> books = new List<Book>();
+            foreach (int id in BooksID)
+            {
+                books.Add(ctx.Books.FirstOrDefault(a => a.ID == id));
+            }
+            return books;
+        }
+        
     }
 }

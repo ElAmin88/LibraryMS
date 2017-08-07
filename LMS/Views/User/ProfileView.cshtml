@@ -5,13 +5,21 @@
 
 }
 
-<div id="data">
-    <label>Name : @Model.name</label>
-    <br />
-    <label>Age : @Model.age</label>
-    <br />
-    <label>E-Mail : @Model.email</label>
-    <br />
-    <label>User Type : @Model.type</label>
+<div class="row">
+    <div class="col-sm-6 col-md-2">
+        <img src="http://www.imran.com/xyper_images/icon-user-default.png"
+             alt="" class="img-rounded img-responsive" />
+    </div>
+    <div class="col-sm-4 col-md-4">
+        <blockquote>
+            <p>@Model.name</p> <small><cite title="Source Title">Adress  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+        </blockquote>
+        <p>
+            <i class="glyphicon glyphicon-envelope"></i> @Model.email
+            <br /> <i class="glyphicon glyphicon-globe"></i> @Model.type
+            <br /> <i class="glyphicon glyphicon-gift"></i>@Model.age
+        </p>
+    </div>
 </div>
+
 

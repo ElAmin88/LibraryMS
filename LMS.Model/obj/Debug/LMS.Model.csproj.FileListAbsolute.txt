@@ -8,8 +8,3 @@ D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\bin\Debug\EntityFramework.SqlServer
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.csprojResolveAssemblyReference.cache
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.dll
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.pdb
-D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.Migrations.InitialCreate.resources
-D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.csproj.GenerateResource.Cache
-D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.Migrations.addAgeToUser.resources
-D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.Migrations.AddedEmailTypeAndAge.resources
-D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Model\obj\Debug\LMS.Model.Migrations.AddedFriends.resources

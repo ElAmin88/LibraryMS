@@ -8,22 +8,30 @@
 
 
 
-<div id="main">
-    @using (Html.BeginForm("EditBook", "Book", FormMethod.Post))
-    {
-        <label>ID : @Model.ID</label> <br />
-        @Html.LabelFor(a => a.title)
-        @Html.TextBoxFor(a => a.title)
-        <br />
-        @Html.LabelFor(a => a.ISBN)
-        @Html.TextBoxFor(a => a.ISBN)
-        <input type="submit" value="Update" />
+@using (Html.BeginForm("EditBook", "Book", FormMethod.Post))
+{
+    <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tr>
+            <td>@Model.ID</td>
+            <td>@Html.TextBoxFor(a => a.title)</td>
+            <td>@Html.TextBoxFor(a => a.ISBN)</td>
+            <td><input type="submit" value="Update" /></td>
+        </tr>
+    </table>
+    
 
 
-    }
+}
 
 
-</div>
 
 
 

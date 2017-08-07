@@ -57,11 +57,29 @@ namespace LMS.Core
             List<User> users = ctx.Users.Where(a => a.name.Contains(search)).ToList();
             return users;
         }
-
-        public static void AddFriendByName(User user,string name)
+        public static List<User> GetFriends(User u)
         {
-            User friend = Users.GetByName(name);
-            user.friends.Add(friend);
+            List<int> friendsID = ctx.Friends.Where(a => a.user1ID == u.ID).Select(b=>b.user2ID).ToList();
+
+            List<User> friends = new List<User>();
+            foreach (int id in friendsID)
+            {
+                friends.Add(ctx.Users.FirstOrDefault(a => a.ID == id));
+            }
+            return friends;
+        }
+
+        public static void AddFriendByName(User user1,string name)
+        {
+            User user2 = Users.GetByName(name);
+            Friend f = new Friend 
+            { 
+                user1ID = user1.ID,
+                user2ID=user2.ID 
+            };
+
+            ctx.Friends.Add(f);
+            ctx.SaveChanges();
         }
         
     }

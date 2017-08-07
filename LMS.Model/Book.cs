@@ -11,6 +11,8 @@ namespace LMS.Models
         [Key]
         public int ID { set; get; }
         public int ISBN { set; get; }
-        public String title { set; get; }
+        public string title { set; get; }
+        public string details { set; get; }
+
     }
 }

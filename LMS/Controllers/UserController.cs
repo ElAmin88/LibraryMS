@@ -35,7 +35,8 @@ namespace LMS.Controllers
         public ActionResult FriendsView(string search)
         {
             User u = Users.GetByName(Session["UserName"].ToString());
-            ViewBag.Friends = u.friends;
+            List<User> friends = Users.GetFriends(u);
+            ViewBag.Friends = Users.GetFriends(u);
             
             return View(Users.Search(search));
                         

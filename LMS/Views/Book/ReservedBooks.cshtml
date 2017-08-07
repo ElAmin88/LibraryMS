@@ -1,0 +1,30 @@
+﻿@model IEnumerable<LMS.Models.Book>
+@{
+    ViewBag.Title = "ReservedBooks";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="row" style="z-index:-1">
+    
+    <div class="col-sm-6">
+        <table class="table table-striped custab ">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>ISBN</th>
+                </tr>
+            </thead>
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.ID</td>
+                    <td>@d.title</td>
+                    <td>@d.ISBN</td>
+                </tr>
+
+            }
+        </table>
+    </div>
+</div>
+

@@ -4,34 +4,12 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/Header.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/Sidebar.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <script src="~/Scripts/Sidebar.js"></script>
-    <script src="~/Scripts/Header.js"></script>
+
 
     @RenderSection("Styles", false)
 </head>
 <body>
     <div class="wrapper">
-        <header>
-            <div class="container">
-                <div id="logo">Logo Here</div>
-
-                <nav>
-                    <a href="#">Home</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Courses</a>
-                    <a href="#">Jobs</a>
-                    <a href="#">Contact</a>
-                </nav>
-
-            </div>
-            <a id="scrollToTop" class="hide" href="#"><i class="fa fa-arrow-circle-up"></i></a>
-
-        </header>
 
         <div id="container">
             @if (@Session["Type"].ToString() != "user")
@@ -51,6 +29,12 @@
     </div>
 
     
-
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Header.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Sidebar.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/Sidebar.js"></script>
+    <script src="~/Scripts/Header.js"></script>
 </body>
 </html>

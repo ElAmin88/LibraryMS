@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -26,14 +27,12 @@ namespace LMS.Models
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string email { get; set; }
 
-        public List<User> friends { get; set; }
 
-        public User()
-        {
-            if (friends == null)
-            {
-                friends = new List<User>();
-            }
-        }
+        [DataType(DataType.Date)]
+        public string DOB { get; set; }
+
+        public string address { get; set; }
+
+        public bool gender { get; set; } 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LMS.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,8 @@ namespace LMS
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            LibraryContext.InitModel();
         }
     }
 }
