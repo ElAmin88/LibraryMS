@@ -17,7 +17,7 @@ namespace LMS.Models
         public int bookID { get; set; }
 
         [ForeignKey("userID")]
-        public User user1 { get; set; }
+        public User user { get; set; }
         [ForeignKey("bookID")]
         public Book book { get; set; }
     }

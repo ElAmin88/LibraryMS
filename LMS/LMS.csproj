@@ -143,6 +143,7 @@
     <Content Include="Views\Shared\_AdminSidebar.cshtml" />
     <Content Include="Views\Shared\_UserSidebar.cshtml" />
     <Content Include="Views\Book\ReservedBooks.cshtml" />
+    <Content Include="Views\Book\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
