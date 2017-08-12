@@ -77,11 +77,5 @@ namespace LMS.Controllers
              Books.Reserve(u, id);
              return RedirectToAction("BooksView");
         }
-
-        public ActionResult Details(int id)
-        {
-            Book b = Books.GetByID(id);
-            return View(b);
-        }
     }
 }

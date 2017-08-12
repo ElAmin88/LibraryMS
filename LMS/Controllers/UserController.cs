@@ -31,7 +31,7 @@ namespace LMS.Controllers
             List<User> friends = Users.GetFriends(u);
             ViewBag.Friends = Users.GetFriends(u);
             
-            return View(Users.Search(search,u));
+            return View(Users.Search(search));
                         
         }
 

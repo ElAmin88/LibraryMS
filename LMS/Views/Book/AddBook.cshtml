@@ -12,22 +12,16 @@
             <tr>
                 <th>Title</th>
                 <th>ISBN</th>
-                <th>Number of Copies</th>
-                <th>Available Copies</th>
+                <th></th>
             </tr>
         </thead>
         <tr>
             <td>@Html.TextBoxFor(a => a.title)</td>
             <td>@Html.TextBoxFor(a => a.ISBN)</td>
-            <td>@Html.TextBoxFor(a=>a.num_copies)</td>
-            <td>@Html.TextBoxFor(a => a.available_copies)</td>
-            
+            <td><input type="submit" value="Add Book" /></td>
         </tr>
     </table>
-    @Html.LabelFor(a=>a.details)
-    @Html.TextAreaFor(a=>a.details)
-    <input type="submit" value="Add Book" />
-
+        
 }
 
 

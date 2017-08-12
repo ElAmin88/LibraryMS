@@ -48,27 +48,13 @@ namespace LMS.Core
             ctx.Users.Remove(u);
             ctx.SaveChanges();
         }
-        public static List<User> Search(string search,User u)
+        public static List<User> Search(string search)
         {
             if (search == null)
             {
                 return new List<User>();
             }
-            
-            List<User> users = ctx.Users.Where(a => a.name.Contains(search)&& a.name!=u.name).ToList();
-            List<User> friends = GetFriends(u);
-            for (int i = users.Count - 1; i >= 0; i--)
-            {
-                foreach (User friend in friends)
-                {
-                    if (users[i].name == friend.name)
-                    {
-                        users.RemoveAt(i);
-                        break;
-                    }
-                }
-            }
-            
+            List<User> users = ctx.Users.Where(a => a.name.Contains(search)).ToList();
             return users;
         }
         public static List<User> GetFriends(User u)
@@ -86,19 +72,13 @@ namespace LMS.Core
         public static void AddFriendByName(User user1,string name)
         {
             User user2 = Users.GetByName(name);
-            Friend f1 = new Friend 
+            Friend f = new Friend 
             { 
                 user1ID = user1.ID,
                 user2ID=user2.ID 
             };
-            Friend f2 = new Friend
-            {
-                user1ID = user2.ID,
-                user2ID = user1.ID
-            };
 
-            ctx.Friends.Add(f1);
-            ctx.Friends.Add(f2);
+            ctx.Friends.Add(f);
             ctx.SaveChanges();
         }
         

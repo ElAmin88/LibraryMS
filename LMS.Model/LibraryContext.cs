@@ -15,8 +15,7 @@ namespace LMS.Models
         {
             modelBuilder.Entity<User>().HasMany(u=> u.Friends).WithRequired(u=> u.user1).WillCascadeOnDelete(false); //add this line code
             modelBuilder.Entity<User>().HasMany(u => u.Friends).WithRequired(u => u.user2).WillCascadeOnDelete(false);
-            modelBuilder.Entity<User>().HasMany(u => u.Reservations).WithRequired(u => u.user).WillCascadeOnDelete(false);
-            modelBuilder.Entity<Book>().HasMany(b => b.Reservations).WithRequired(b => b.book).WillCascadeOnDelete(false);
+
 
 
         }

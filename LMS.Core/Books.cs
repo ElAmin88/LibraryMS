@@ -50,7 +50,6 @@ namespace LMS.Core
             Book b = GetByID(book.ID);
             b.ISBN = book.ISBN;
             b.title = book.title;
-            b.details = book.details;
             ctx.SaveChanges();
             
         }
@@ -73,8 +72,6 @@ namespace LMS.Core
                 bookID = id,
                 userID = u.ID
             };
-            Book b = GetByID(id);
-            b.available_copies -= 1;
             ctx.Reservations.Add(r);
             ctx.SaveChanges();
         }

@@ -29,8 +29,7 @@ namespace LMS.Models
 
 
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
-        public DateTime DOB { get; set; }
+        public string DOB { get; set; }
 
         public string address { get; set; }
 

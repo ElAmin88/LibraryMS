@@ -20,42 +20,21 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>ISBN</th>
-                    <th>Description</th>
-                    <th>Number of Copies</th>
-                    <th>Available Copies</th>
-                    @if (@Session["Type"].ToString() == "user")
-                    {
                     <th>Reserve</th>
-                    }
                 </tr>
             </thead>
             @foreach (var d in Model)
             {
                 <tr>
                     <td>@d.ID</td>
-                    <td>@d.ISBN</td>
                     <td>@d.title</td>
-                    <td>@Html.ActionLink("Details", "Details", "Book", new { id = d.ID }, null)</td>
-                    <td>@d.num_copies</td>
-                    <td>@d.available_copies</td>
-                    @if (@Session["Type"].ToString() == "user")
-                    {
-                        <td>
-                            @if (d.available_copies != 0)
-                            {
-                                using (Html.BeginForm("BooksView", "Book", FormMethod.Post))
-                                {
-                                    @Html.ActionLink("Reserve", "Reserve", "Book", new { id = d.ID }, null)
-                                }
-                            }
-                            else
-                            {
-                                @:Cannot Reserve
-                            }
-
-                        </td>
-                    }
-                        
+                    <td>@d.ISBN</td>
+                    <td>
+                        @using (Html.BeginForm("BooksView", "Book", FormMethod.Post))
+                        {
+                            @Html.ActionLink("Reserve", "Reserve", "Book", new { id = d.ID }, null)
+                        }
+                    </td>
                 </tr>
 
             }
