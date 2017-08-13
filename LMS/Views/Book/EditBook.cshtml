@@ -16,18 +16,18 @@
                 <th>ID</th>
                 <th>Title</th>
                 <th>ISBN</th>
-                <th></th>
             </tr>
         </thead>
         <tr>
             <td>@Model.ID</td>
             <td>@Html.TextBoxFor(a => a.title)</td>
             <td>@Html.TextBoxFor(a => a.ISBN)</td>
-            <td><input type="submit" value="Update" /></td>
+            
         </tr>
     </table>
-    
-
+    @Html.LabelFor(a => a.details)
+    @Html.TextAreaFor(a => a.details)
+    <input type="submit" value="Update" />
 
 }
 

@@ -8,13 +8,16 @@ using System.Web.Security;
 using LMS.Core;
 namespace LMS.Controllers
 {
+
     public class HomeController : Controller
     {
+        
         public ActionResult Login()
         {
             return View();
         }
         [HttpPost]
+
 
         public ActionResult Login(User user)
         {
@@ -22,6 +25,7 @@ namespace LMS.Controllers
             if (Users.Check(user))
             {
                 user = Users.GetByName(user.name);
+                Users.currentUser = user;
                 Session["UserName"] = user.name.ToString();
                 Session["Type"] = user.type.ToString();
                 return RedirectToAction("BooksView","Book");
@@ -54,6 +58,7 @@ namespace LMS.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
+            Users.currentUser = null;
             Session.Abandon();
             return RedirectToAction("Login","Home");
         }

@@ -16,10 +16,8 @@ namespace LMS.Controllers
         {
             if (Session["UserName"] != null)
             {
-                string name = Session["UserName"].ToString();
-
-                User current = Users.GetByName(name);
-                return View(current);
+                
+                return View(Users.currentUser);
             }
 
             return RedirectToAction("Login", "Home");
@@ -27,19 +25,22 @@ namespace LMS.Controllers
 
         public ActionResult FriendsView(string search)
         {
-            User u = Users.GetByName(Session["UserName"].ToString());
-            List<User> friends = Users.GetFriends(u);
-            ViewBag.Friends = Users.GetFriends(u);
-            
-            return View(Users.Search(search));
+            ViewBag.Friends = Users.GetFriends(Users.currentUser);
+            ViewBag.Requests = Users.GetFriendRequest(Users.currentUser);
+            return View(Users.Search(search, Users.currentUser));
                         
         }
 
-        public ActionResult AddFriend(String name)
+        public ActionResult SendFriendRequest(String name)
         {
-            User user = Users.GetByName(Session["UserName"].ToString());
-            Users.AddFriendByName(user, name);
+            Users.SendFriendRequest(Users.currentUser, name);
             return RedirectToAction("FriendsView");
+        }
+        public ActionResult AddFriend(int id)
+        {
+            Users.AddFriend(Users.currentUser, id);
+            return RedirectToAction("FriendsView");
+
         }
     }
 }

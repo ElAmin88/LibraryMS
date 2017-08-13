@@ -1,13 +1,16 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
+
+
 namespace LMS.Models
 {
-    public class User
+    public class User 
     {
         [Key]
         public int ID { set; get; }
@@ -29,13 +32,16 @@ namespace LMS.Models
 
 
         [DataType(DataType.Date)]
-        public string DOB { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        public DateTime DOB { get; set; }
 
         public string address { get; set; }
 
         public bool gender { get; set; }
         public ICollection<Friend> Friends { get; set; }
         public ICollection<Reservation> Reservations { get; set; }
+        public ICollection<Rating> Ratings { get; set; }
+
 
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LMS.Core;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LMS.Controllers
 {
@@ -15,6 +16,8 @@ namespace LMS.Controllers
         {
             if (Session["UserName"] != null)
             {
+                IdentityUser u = new IdentityUser();
+               
                 return View(Books.Search(search));
             }
             return RedirectToAction("Login", "Home");
@@ -65,17 +68,38 @@ namespace LMS.Controllers
 
         public ActionResult ReservedBooks()
         {
-            User u = Users.GetByName(Session["UserName"].ToString());
-            
-            return View(Books.ReservedBooks(u));
+
+            return View(Books.ReservedBooks(Users.currentUser));
         }
         
         public ActionResult Reserve(int id)
         {
-             User u = Users.GetByName(Session["UserName"].ToString());
-
-             Books.Reserve(u, id);
+            Books.Reserve(Users.currentUser, id);
              return RedirectToAction("BooksView");
+        }
+
+        public ActionResult Details(int id)
+        {
+            Book b = Books.GetByID(id);
+            ViewBag.Ratings = Books.GetAllRatings(id);
+            return View(b);
+        }
+
+        public ActionResult Rating (int id)
+        {
+            Rating r = new Rating
+            {
+                bookID = id
+            };
+            return View(r);
+        }
+        [HttpPost]
+        public ActionResult AddRating(Rating r)
+        {
+            r.userID = Users.currentUser.ID;
+            Books.Rate(r);
+
+            return RedirectToAction("BooksView");
         }
     }
 }

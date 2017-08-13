@@ -1,0 +1,27 @@
+﻿@model LMS.Models.Book
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<h3>Description: </h3>
+<p>@Model.details</p>
+<br />
+<h3>Your Rating :</h3>
+<table class="table table-striped custab">
+    <tr>
+        <th>Name </th>
+        <th>Rating</th>
+        <th>review</th>
+    </tr>
+    @foreach (var r in ViewBag.Ratings)
+            {
+        <tr>
+            <td>@r.userID</td>
+            <td>@r.rating</td>
+            <td>@r.review</td>
+        </tr>
+
+    }
+
+</table>
+

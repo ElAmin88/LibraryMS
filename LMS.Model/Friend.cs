@@ -21,5 +21,6 @@ namespace LMS.Models
         public User user1 { get; set; }
         [ForeignKey("user2ID")]
         public User user2 { get; set; }
+        public int status { get; set; }
     }
 }

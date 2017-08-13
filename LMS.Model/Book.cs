@@ -14,7 +14,12 @@ namespace LMS.Models
         public string title { set; get; }
         public string details { set; get; }
 
+        public int available_copies { set; get; }
+        public int num_copies { set; get; }
+
         public ICollection<Reservation> Reservations { get; set; }
+        public ICollection<Rating> Ratings { get; set; }
+
 
     }
 }

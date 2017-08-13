@@ -22,7 +22,7 @@
             {
                 <tr>
                     <td>@d.name</td>
-                    <td>@Html.ActionLink("Add", "AddFriend", "User", new { name = d.name }, null)</td>
+                    <td>@Html.ActionLink("Add", "SendFriendRequest", "User", new { name = d.name }, null)</td>
                 </tr>
             }
 
@@ -42,6 +42,21 @@
 
             }
 
+        </table>
+    </div>
+    <div class="col-sm-3">
+        <table class="table table-striped custab">
+            <tr>
+                <th>Friend Requests </th>
+            </tr>
+            <tr></tr>
+            @foreach (var d in ViewBag.Requests)
+            {
+                <tr>
+                    <td>@d.name</td>
+                    <td>@Html.ActionLink("Add", "AddFriend", "User", new { id = d.ID  }, null)</td>
+                </tr>
+            }
         </table>
     </div>
 </div> 

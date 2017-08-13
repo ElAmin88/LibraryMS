@@ -50,6 +50,7 @@ namespace LMS.Core
             Book b = GetByID(book.ID);
             b.ISBN = book.ISBN;
             b.title = book.title;
+            b.details = book.details;
             ctx.SaveChanges();
             
         }
@@ -72,6 +73,8 @@ namespace LMS.Core
                 bookID = id,
                 userID = u.ID
             };
+            Book b = GetByID(id);
+            b.available_copies -= 1;
             ctx.Reservations.Add(r);
             ctx.SaveChanges();
         }
@@ -88,5 +91,27 @@ namespace LMS.Core
             return books;
         }
         
+        public static void Rate (Rating r)
+        {
+            Rating cr = GetRating(r.bookID);
+            if(cr==null)
+            {
+                ctx.Ratings.Add(r);
+            }
+            else
+            {
+                cr = r;
+            }
+            ctx.SaveChanges();
+        }
+
+        public static Rating GetRating(int id)
+        {
+            return ctx.Ratings.FirstOrDefault(r => r.bookID == id&& r.userID== Users.currentUser.ID);
+        }
+        public static List<Rating> GetAllRatings(int id)
+        {
+            return ctx.Ratings.Where(r => r.bookID == id).ToList();
+        }
     }
 }
