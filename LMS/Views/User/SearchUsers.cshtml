@@ -1,0 +1,31 @@
+﻿@model IEnumerable<LMS.Models.User>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SearchUsers</title>
+</head>
+<body>
+    <table class="table table-striped custab">
+        <tr>
+            <th>Name </th>
+        </tr>
+        <tr></tr>
+        @foreach (var d in Model)
+            {
+            <tr>
+                <td>@d.name</td>
+                <td>@Html.ActionLink("Add", "SendFriendRequest", "User", new { name = d.name }, null)</td>
+            </tr>
+        }
+
+    </table>
+
+</body>
+</html>

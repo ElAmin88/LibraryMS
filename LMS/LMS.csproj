@@ -169,6 +169,8 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\Sidebar.js" />
     <Content Include="Web.config" />
@@ -205,6 +207,8 @@
     <Content Include="Views\Book\ReservedBooks.cshtml" />
     <Content Include="Views\Book\Details.cshtml" />
     <Content Include="Views\Book\Rating.cshtml" />
+    <Content Include="Views\User\SearchUsers.cshtml" />
+    <Content Include="Views\Book\SearchBooks.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

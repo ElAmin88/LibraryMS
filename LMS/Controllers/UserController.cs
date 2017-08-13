@@ -42,5 +42,10 @@ namespace LMS.Controllers
             return RedirectToAction("FriendsView");
 
         }
+
+        public ActionResult SearchUsers(string search)
+        {
+            return View(Users.Search(search, Users.currentUser));
+        }
     }
 }

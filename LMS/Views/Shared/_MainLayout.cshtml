@@ -33,8 +33,17 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Header.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Sidebar.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script src="~/Scripts/Sidebar.js"></script>
     <script src="~/Scripts/Header.js"></script>
+    <script>
+        $(function(){
+            $("#search").keyup(function () {
+                $("#btnSearch").click();
+            });
+        });
+    </script>
 </body>
 </html>

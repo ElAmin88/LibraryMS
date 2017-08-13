@@ -16,7 +16,7 @@
     @foreach (var r in ViewBag.Ratings)
             {
         <tr>
-            <td>@r.userID</td>
+            <td>@r.user.name</td>
             <td>@r.rating</td>
             <td>@r.review</td>
         </tr>

@@ -13,6 +13,7 @@
                     <th>ID</th>
                     <th>Title</th>
                     <th>ISBN</th>
+                    <th></th>
                 </tr>
             </thead>
             @foreach (var d in Model)
@@ -21,6 +22,7 @@
                     <td>@d.ID</td>
                     <td>@d.title</td>
                     <td>@d.ISBN</td>
+                    <td>@Html.ActionLink("Return Book", "ReturnBook", "Book", new { id = d.ID }, null)</td>
                 </tr>
 
             }

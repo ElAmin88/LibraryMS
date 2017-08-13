@@ -6,27 +6,17 @@
 
 <div class="row">
     <div class="col-sm-3">
-        @using (Html.BeginForm("FriendsView", "User", FormMethod.Get))
+        @using (Ajax.BeginForm("SearchUsers", "User", new AjaxOptions { UpdateTargetId = "ajax" }))
         {
-            @Html.TextBox("search")
-            <input type="submit" name="submit" value="search" />
 
+            @Html.TextBox("search")
+            <input type="submit" id="btnSearch" name="submit" value="search" />
 
         }
-        <table class="table table-striped custab">
-            <tr>
-                <th>Name </th>
-            </tr>
-            <tr></tr>
-            @foreach (var d in Model)
-            {
-                <tr>
-                    <td>@d.name</td>
-                    <td>@Html.ActionLink("Add", "SendFriendRequest", "User", new { name = d.name }, null)</td>
-                </tr>
-            }
-
-        </table>
+        <div id="ajax">
+            @Html.Partial("~/Views/User/SearchUsers.cshtml")
+        </div>
+        
     </div>
 
     <div class="col-sm-6">

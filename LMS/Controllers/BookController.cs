@@ -23,6 +23,10 @@ namespace LMS.Controllers
             return RedirectToAction("Login", "Home");
         }
 
+        public ActionResult SearchBooks(string search)
+        {
+            return View(Books.Search(search));
+        }
         public ActionResult AddBook()
         {
             return View();
@@ -100,6 +104,12 @@ namespace LMS.Controllers
             Books.Rate(r);
 
             return RedirectToAction("BooksView");
+        }
+
+        public ActionResult ReturnBook(int id )
+        {
+            Books.ReturnByID(id);
+            return RedirectToAction("Rating", new { id = id });
         }
     }
 }

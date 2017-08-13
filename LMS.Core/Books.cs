@@ -90,6 +90,15 @@ namespace LMS.Core
             }
             return books;
         }
+
+        public static void ReturnByID (int id)
+        {
+            Reservation r = ctx.Reservations.FirstOrDefault(a => a.bookID == id);
+            ctx.Reservations.Remove(r);
+            Book b = ctx.Books.FirstOrDefault(a => a.ID == id);
+            b.available_copies++;
+            ctx.SaveChanges();
+        }
         
         public static void Rate (Rating r)
         {
@@ -111,7 +120,7 @@ namespace LMS.Core
         }
         public static List<Rating> GetAllRatings(int id)
         {
-            return ctx.Ratings.Where(r => r.bookID == id).ToList();
+            return ctx.Ratings.Include(x => x.user).Where(r => r.bookID == id).ToList();
         }
     }
 }
