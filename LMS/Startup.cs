@@ -16,7 +16,16 @@ namespace LMS
     {
         public void Configuration(IAppBuilder app)
         {
-            
+            app.CreatePerOwinContext(() => new LibraryContext());
+            app.CreatePerOwinContext<UserStore<User>>((opt, cont) => new UserStore<User>(cont.Get<LibraryContext>()));
+            app.CreatePerOwinContext<UserManager<User>>((opt, cont) => new UserManager<User>(new UserStore<User>(cont.Get<LibraryContext>())));
+
+            app.CreatePerOwinContext<SignInManager<User, string>>((opt, cont) => new SignInManager<User, string>(cont.Get<UserManager<User>>(), cont.Authentication));
+            app.UseCookieAuthentication(new CookieAuthenticationOptions
+            {
+                AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+            });
+
         }
     }
 }

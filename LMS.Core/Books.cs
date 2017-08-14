@@ -71,7 +71,7 @@ namespace LMS.Core
             Reservation r = new Reservation
             {
                 bookID = id,
-                userID = u.ID
+                userID = u.Id
             };
             Book b = GetByID(id);
             b.available_copies -= 1;
@@ -81,7 +81,7 @@ namespace LMS.Core
 
         public static List<Book> ReservedBooks(User u)
         {
-            List<int> BooksID = ctx.Reservations.Where(a => a.userID == u.ID).Select(b => b.bookID).ToList();
+            List<int> BooksID = ctx.Reservations.Where(a => a.userID == u.Id).Select(b => b.bookID).ToList();
 
             List<Book> books = new List<Book>();
             foreach (int id in BooksID)
@@ -116,7 +116,7 @@ namespace LMS.Core
 
         public static Rating GetRating(int id)
         {
-            return ctx.Ratings.FirstOrDefault(r => r.bookID == id&& r.userID== Users.currentUser.ID);
+            return ctx.Ratings.FirstOrDefault(r => r.bookID == id&& r.userID== Users.currentUser.Id);
         }
         public static List<Rating> GetAllRatings(int id)
         {

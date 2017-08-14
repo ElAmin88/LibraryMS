@@ -12,7 +12,7 @@
     <div class="wrapper">
 
         <div id="container">
-            @if (@Session["Type"].ToString() != "user")
+            @if (@Session["Type"].ToString() != "User")
             {
                 @Html.Partial("_AdminSidebar")
             }

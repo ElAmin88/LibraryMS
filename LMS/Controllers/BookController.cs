@@ -100,7 +100,7 @@ namespace LMS.Controllers
         [HttpPost]
         public ActionResult AddRating(Rating r)
         {
-            r.userID = Users.currentUser.ID;
+            r.userID = Users.currentUser.Id;
             Books.Rate(r);
 
             return RedirectToAction("BooksView");

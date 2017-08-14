@@ -12,7 +12,7 @@ namespace LMS.Models
         public int ID { get; set; }
         public int rating { get; set; }
         public int bookID { get; set; }
-        public int userID { get; set; }
+        public string userID { get; set; }
 
         public string review { get; set; }
 

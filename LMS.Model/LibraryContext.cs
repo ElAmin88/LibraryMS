@@ -10,7 +10,7 @@ using System.Web;
 
 namespace LMS.Models
 {
-    public class LibraryContext : DbContext
+    public class LibraryContext : IdentityDbContext<User>
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -20,11 +20,11 @@ namespace LMS.Models
             modelBuilder.Entity<User>().HasMany(u => u.Ratings).WithRequired(r => r.user).WillCascadeOnDelete(false);
             modelBuilder.Entity<Book>().HasMany(b => b.Reservations).WithRequired(b => b.book).WillCascadeOnDelete(false);
             modelBuilder.Entity<Book>().HasMany(b => b.Ratings).WithRequired(r=> r.book).WillCascadeOnDelete(false);
-
+            base.OnModelCreating(modelBuilder);
 
 
         }
-        public LibraryContext() : base() 
+        public LibraryContext() : base("LibraryContext") 
         { 
         
         }
@@ -33,8 +33,6 @@ namespace LMS.Models
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<LibraryContext, Configuration>());
         }
-
-        public DbSet<User> Users { get; set; }
 
         public DbSet<Book> Books { get; set; }
 

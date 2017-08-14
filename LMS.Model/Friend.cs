@@ -12,10 +12,10 @@ namespace LMS.Models
     {
         
         [Key,Column(Order = 0)]
-        public int user1ID { get; set;}
+        public string user1ID { get; set;}
         
         [Key,Column(Order = 1)]
-        public int user2ID { get; set; }
+        public string user2ID { get; set; }
         
         [ForeignKey("user1ID")]
         public User user1 { get; set; }

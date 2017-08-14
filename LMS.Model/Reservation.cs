@@ -11,7 +11,7 @@ namespace LMS.Models
     public class Reservation
     {
         [Key, Column(Order = 0)]
-        public int userID { get; set; }
+        public string userID { get; set; }
 
         [Key, Column(Order = 1)]
         public int bookID { get; set; }

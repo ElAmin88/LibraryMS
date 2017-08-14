@@ -36,7 +36,7 @@ namespace LMS.Controllers
             Users.SendFriendRequest(Users.currentUser, name);
             return RedirectToAction("FriendsView");
         }
-        public ActionResult AddFriend(int id)
+        public ActionResult AddFriend(string id)
         {
             Users.AddFriend(Users.currentUser, id);
             return RedirectToAction("FriendsView");

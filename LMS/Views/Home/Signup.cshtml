@@ -28,7 +28,7 @@
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                        @Html.TextBoxFor(a => a.name)
+                        @Html.TextBoxFor(a => a.UserName)
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                        @Html.TextBoxFor(a => a.email)
+                        @Html.TextBoxFor(a => a.Email)
                     </div>
                 </div>
             </div>
@@ -46,16 +46,7 @@
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                        @Html.PasswordFor(a => a.password)
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="confirm" class="cols-sm-2 control-label">Type</label>
-                <div class="cols-sm-10">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                        @Html.TextBoxFor(a => a.type)
+                        @Html.Password("password")
                     </div>
                 </div>
             </div>

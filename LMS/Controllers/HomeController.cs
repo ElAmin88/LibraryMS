@@ -6,12 +6,23 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using LMS.Core;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+
 namespace LMS.Controllers
 {
 
     public class HomeController : Controller
     {
-        
+        public UserStore<User> us = new UserStore<User>(new LibraryContext());
+        public UserManager<User> um => HttpContext.GetOwinContext().Get<UserManager<User>>();
+        public SignInManager<User, string> sim => HttpContext.GetOwinContext().Get<SignInManager<User, string>>();
+
+        public RoleStore<IdentityRole> rs;
+        public RoleManager<IdentityRole> rm;
+        IdentityRole role;
+
         public ActionResult Login()
         {
             return View();
@@ -19,20 +30,29 @@ namespace LMS.Controllers
         [HttpPost]
 
 
-        public ActionResult Login(User user)
+        public ActionResult Login(string name, string password)
         {
 
-            if (Users.Check(user))
-            {
-                user = Users.GetByName(user.name);
-                Users.currentUser = user;
-                Session["UserName"] = user.name.ToString();
-                Session["Type"] = user.type.ToString();
-                return RedirectToAction("BooksView","Book");
-            }
-                
+            SignInStatus SIS = sim.PasswordSignIn(name, password, false, false);
             
-            return View();
+            switch (SIS)
+            {
+                case SignInStatus.Failure:
+                    return View();
+                case SignInStatus.LockedOut:
+                    return View();
+                case SignInStatus.RequiresVerification:
+                    return View();
+                case SignInStatus.Success:
+                    User user = Users.GetByName(name);
+                    Users.currentUser = user;
+                    Session["UserName"] = user.UserName;
+                    Session["Type"] = "User";
+                    return RedirectToAction("BooksView", "Book");
+                default:
+                    return View();
+            }
+
         }
 
         public ActionResult Signup()
@@ -41,13 +61,19 @@ namespace LMS.Controllers
         }
 
         [HttpPost]
-        public ActionResult Signup(User user)
+        public ActionResult Signup(User user,string password)
         {
             if (user != null)
             { 
                 if (ModelState.IsValid)
                 {
-                    Users.Add(user);
+                    role = new IdentityRole();
+                    role.Name = "User";
+                    rs = new RoleStore<IdentityRole>(new LibraryContext());
+                    rm = new RoleManager<IdentityRole>(rs);
+                    rm.Create(role);
+                    um.Create(user,password);
+                    um.AddToRole(user.Id, "User");
                     return RedirectToAction("Login","Home");
                 }           
             }
