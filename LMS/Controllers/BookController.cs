@@ -11,7 +11,7 @@ namespace LMS.Controllers
 {
     public class BookController : Controller
     {
-
+        
         public ActionResult BooksView(string search)
         {
             if (Session["UserName"] != null)
@@ -81,12 +81,12 @@ namespace LMS.Controllers
         public ActionResult ReservedBooks()
         {
 
-            return View(Books.ReservedBooksbyUser(Users.currentUser));
+            return View(Books.ReservedBooksbyUser((User)Session["User"]));
         }
         [Authorize(Roles = "User")]
         public ActionResult Reserve(int id)
         {
-            Books.ReserveRequest(Users.currentUser, id);
+            Books.ReserveRequest(((User)Session["User"]), id);
              return RedirectToAction("BooksView");
         }
 
@@ -111,8 +111,8 @@ namespace LMS.Controllers
         [HttpPost]
         public ActionResult AddRating(Rating r)
         {
-            r.userID = Users.currentUser.Id;
-            Books.Rate(r);
+            r.userID = ((User)Session["User"]).Id;
+            Books.Rate(((User)Session["User"]),r);
 
             return RedirectToAction("BooksView");
         }
@@ -120,7 +120,7 @@ namespace LMS.Controllers
         [Authorize(Roles = "User")]
         public ActionResult ReturnBook(int id )
         {
-            Books.RequestReturnByID(Users.currentUser.Id,id);
+            Books.RequestReturnByID(((User)Session["User"]).Id,id);
             return RedirectToAction("Rating", new { id = id });
         }
 

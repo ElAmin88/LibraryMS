@@ -45,7 +45,7 @@ namespace LMS.Controllers
                     return View();
                 case SignInStatus.Success:
                     User user = Users.GetByName(name);
-                    Users.currentUser = user;
+                    Session["User"] = user;
                     Session["UserName"] = user.UserName;
                     List<IdentityUserRole> role = user.Roles.ToList();
                     string type=null;
@@ -118,7 +118,6 @@ namespace LMS.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            Users.currentUser = null;
             Session.Abandon();
             return RedirectToAction("Login","Home");
         }

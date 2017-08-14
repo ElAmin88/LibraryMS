@@ -11,7 +11,6 @@ namespace LMS.Core
     
     public class Users
     {
-        public static User currentUser;
         static LibraryContext ctx = new LibraryContext();
 
         

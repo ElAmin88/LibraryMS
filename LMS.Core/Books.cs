@@ -148,9 +148,9 @@ namespace LMS.Core
             ctx.SaveChanges();
         }
         
-        public static void Rate (Rating r)
+        public static void Rate (User u,Rating r)
         {
-            Rating cr = GetRating(r.bookID);
+            Rating cr = GetRating(u,r.bookID);
             if(cr==null)
             {
                 ctx.Ratings.Add(r);
@@ -162,9 +162,9 @@ namespace LMS.Core
             ctx.SaveChanges();
         }
 
-        public static Rating GetRating(int id)
+        public static Rating GetRating(User u,int id)
         {
-            return ctx.Ratings.FirstOrDefault(r => r.bookID == id&& r.userID== Users.currentUser.Id);
+            return ctx.Ratings.FirstOrDefault(r => r.bookID == id&& r.userID== u.Id);
         }
 
         public static List<Rating> GetAllRatings(int id)
