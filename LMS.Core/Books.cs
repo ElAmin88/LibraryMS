@@ -23,11 +23,13 @@ namespace LMS.Core
             ctx.Books.Add(book);
             ctx.SaveChanges();
         }
+
         public static void Remove(Book book)
         {
             ctx.Books.Remove(book);
             ctx.SaveChanges();
         }
+
         public static Book GetByID(int ID)
         {
             Book existBook = ctx.Books.FirstOrDefault(a => a.ID == ID);
@@ -38,6 +40,7 @@ namespace LMS.Core
             return null;
 
         }
+
         public static void RemoveByID(int id)
         {
             Book book = Books.GetByID(id);
@@ -54,6 +57,7 @@ namespace LMS.Core
             ctx.SaveChanges();
             
         }
+
         public static List<Book> Search(string search)
         {
             if (search == null)
@@ -66,22 +70,31 @@ namespace LMS.Core
             return books;
         }
 
-        public static void Reserve(User u,int id)
+        public static void ReserveRequest(User u,int id)
         {
             Reservation r = new Reservation
             {
                 bookID = id,
-                userID = u.Id
+                userID = u.Id,
+                status=0
             };
-            Book b = GetByID(id);
-            b.available_copies -= 1;
             ctx.Reservations.Add(r);
             ctx.SaveChanges();
         }
 
-        public static List<Book> ReservedBooks(User u)
+        public static void Reserve (string userId , int bookId)
         {
-            List<int> BooksID = ctx.Reservations.Where(a => a.userID == u.Id).Select(b => b.bookID).ToList();
+            Reservation r = ctx.Reservations.FirstOrDefault(x=> x.userID ==userId &&x.bookID == bookId);
+            r.status = 1;
+            Book b = GetByID(bookId);
+            b.available_copies -= 1;
+
+            ctx.SaveChanges();
+        }
+
+        public static List<Book> ReservedBooksbyUser(User u)
+        {
+            List<int> BooksID = ctx.Reservations.Where(a => a.userID == u.Id && a.status==1).Select(b => b.bookID).ToList();
 
             List<Book> books = new List<Book>();
             foreach (int id in BooksID)
@@ -91,11 +104,46 @@ namespace LMS.Core
             return books;
         }
 
-        public static void ReturnByID (int id)
+        public static List<Reservation> GetPendingReservations(string search)
         {
-            Reservation r = ctx.Reservations.FirstOrDefault(a => a.bookID == id);
+            List<Reservation> res=null;
+            if (search==null)
+            {
+                res = ctx.Reservations.Include(x => x.user).Include(x => x.book).Where(r => r.status == 0).ToList();
+            }
+            else
+            {
+                res = ctx.Reservations.Include(x => x.user).Include(x => x.book).Where(r => r.status == 0 && r.user.UserName.Contains(search)).ToList();
+            }
+            return res;
+        }
+
+        public static List<Reservation> GetPendingRetrievals(string search)
+        {
+            List<Reservation> res = null;
+            if (search == null)
+            {
+                res = ctx.Reservations.Include(x => x.user).Include(x => x.book).Where(r => r.status == 2).ToList();
+            }
+            else
+            {
+                res = ctx.Reservations.Include(x => x.user).Include(x => x.book).Where(r => r.status == 2 && r.user.UserName.Contains(search)).ToList();
+            }
+            return res;
+        }
+
+        public static void RequestReturnByID(string userId,int bookId)
+        {
+            Reservation r = ctx.Reservations.FirstOrDefault(x => x.userID == userId && x.bookID == bookId);
+            r.status = 2;
+            ctx.SaveChanges();
+        }
+
+        public static void ReturnById(string userId ,int bookId)
+        {
+            Reservation r = ctx.Reservations.FirstOrDefault(a => a.bookID == bookId && a.userID==userId);
             ctx.Reservations.Remove(r);
-            Book b = ctx.Books.FirstOrDefault(a => a.ID == id);
+            Book b = ctx.Books.FirstOrDefault(a => a.ID == bookId);
             b.available_copies++;
             ctx.SaveChanges();
         }
@@ -118,6 +166,7 @@ namespace LMS.Core
         {
             return ctx.Ratings.FirstOrDefault(r => r.bookID == id&& r.userID== Users.currentUser.Id);
         }
+
         public static List<Rating> GetAllRatings(int id)
         {
             return ctx.Ratings.Include(x => x.user).Where(r => r.bookID == id).ToList();

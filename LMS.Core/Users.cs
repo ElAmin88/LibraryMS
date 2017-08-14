@@ -15,7 +15,11 @@ namespace LMS.Core
         static LibraryContext ctx = new LibraryContext();
 
         
-
+        public static string GetRole(string id)
+        {
+            IdentityRole role = ctx.Roles.FirstOrDefault(a => a.Id == id);
+            return role.Name;
+        } 
         public static User GetByName(string name)
         {
             User existUser = ctx.Users.FirstOrDefault(a => a.UserName == name);

@@ -20,8 +20,8 @@
         @foreach (var d in Model)
             {
             <tr>
-                <td>@d.name</td>
-                <td>@Html.ActionLink("Add", "SendFriendRequest", "User", new { name = d.name }, null)</td>
+                <td>@d.UserName</td>
+                <td>@Html.ActionLink("Add", "SendFriendRequest", "User", new { name = d.UserName }, null)</td>
             </tr>
         }
 

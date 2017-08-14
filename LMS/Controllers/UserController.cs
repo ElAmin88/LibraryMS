@@ -10,8 +10,8 @@ namespace LMS.Controllers
 {
     public class UserController : Controller
     {
-        
 
+        [Authorize(Roles = "User")]
         public ActionResult ProfileView()
         {
             if (Session["UserName"] != null)
@@ -23,6 +23,7 @@ namespace LMS.Controllers
             return RedirectToAction("Login", "Home");
         }
 
+        [Authorize(Roles = "User")]
         public ActionResult FriendsView(string search)
         {
             ViewBag.Friends = Users.GetFriends(Users.currentUser);
@@ -31,11 +32,14 @@ namespace LMS.Controllers
                         
         }
 
+        [Authorize(Roles = "User")]
         public ActionResult SendFriendRequest(String name)
         {
             Users.SendFriendRequest(Users.currentUser, name);
             return RedirectToAction("FriendsView");
         }
+        
+        [Authorize(Roles = "User")]
         public ActionResult AddFriend(string id)
         {
             Users.AddFriend(Users.currentUser, id);
@@ -47,5 +51,7 @@ namespace LMS.Controllers
         {
             return View(Users.Search(search, Users.currentUser));
         }
+
+        
     }
 }

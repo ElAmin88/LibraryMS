@@ -12,7 +12,7 @@
             <th>Description</th>
             <th>Number of Copies</th>
             <th>Available Copies</th>
-            @if (@Session["Type"].ToString() == "user")
+            @if (@Session["Type"].ToString() == "User")
             {
                 <th>Reserve</th>
             }
@@ -27,7 +27,7 @@
             <td>@Html.ActionLink("Details", "Details", "Book", new { id = d.ID }, null)</td>
             <td>@d.num_copies</td>
             <td>@d.available_copies</td>
-            @if (@Session["Type"].ToString() == "user")
+            @if (@Session["Type"].ToString() == "User")
             {
                 <td>
                     @if (d.available_copies != 0)

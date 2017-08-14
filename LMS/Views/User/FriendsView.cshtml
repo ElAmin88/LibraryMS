@@ -14,7 +14,7 @@
 
         }
         <div id="ajax">
-            @Html.Partial("~/Views/User/SearchUsers.cshtml")
+            @Html.Partial("~/Views/Partials/SearchUsers.cshtml")
         </div>
         
     </div>
@@ -27,7 +27,7 @@
             @foreach (var user in ViewBag.Friends)
             {
                 <tr>
-                    <td>@user.name</td>
+                    <td>@user.UserName</td>
                 </tr>
 
             }

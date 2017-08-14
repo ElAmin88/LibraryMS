@@ -11,7 +11,7 @@ namespace LMS.Controllers
 {
     public class BookController : Controller
     {
-        // GET: Book
+
         public ActionResult BooksView(string search)
         {
             if (Session["UserName"] != null)
@@ -27,12 +27,15 @@ namespace LMS.Controllers
         {
             return View(Books.Search(search));
         }
+
+        [Authorize(Roles = "Admin")]
         public ActionResult AddBook()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles ="Admin")]
         public ActionResult AddBook(Book book)
         {
             
@@ -44,6 +47,7 @@ namespace LMS.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult EditBook(int id)
         {
 
@@ -51,12 +55,14 @@ namespace LMS.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult EditBook(Book book)
         {
             Books.Update(book);
             return RedirectToAction("EditAndDelete");
         }
-        
+
+        [Authorize(Roles = "Admin")]
         public ActionResult RemoveBook(int id)
         {
             Books.RemoveByID(id);
@@ -64,21 +70,23 @@ namespace LMS.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult EditAndDelete()
         {
 
             return View(Books.GetAll());
         }
 
+        [Authorize(Roles = "User")]
         public ActionResult ReservedBooks()
         {
 
-            return View(Books.ReservedBooks(Users.currentUser));
+            return View(Books.ReservedBooksbyUser(Users.currentUser));
         }
-        
+        [Authorize(Roles = "User")]
         public ActionResult Reserve(int id)
         {
-            Books.Reserve(Users.currentUser, id);
+            Books.ReserveRequest(Users.currentUser, id);
              return RedirectToAction("BooksView");
         }
 
@@ -89,6 +97,7 @@ namespace LMS.Controllers
             return View(b);
         }
 
+        [Authorize(Roles = "User")]
         public ActionResult Rating (int id)
         {
             Rating r = new Rating
@@ -97,6 +106,8 @@ namespace LMS.Controllers
             };
             return View(r);
         }
+
+        [Authorize(Roles = "User")]
         [HttpPost]
         public ActionResult AddRating(Rating r)
         {
@@ -106,10 +117,50 @@ namespace LMS.Controllers
             return RedirectToAction("BooksView");
         }
 
+        [Authorize(Roles = "User")]
         public ActionResult ReturnBook(int id )
         {
-            Books.ReturnByID(id);
+            Books.RequestReturnByID(Users.currentUser.Id,id);
             return RedirectToAction("Rating", new { id = id });
         }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Reservations(string searchReservation ,string searchRetrieval)
+        {
+            ViewBag.Reservations = Books.GetPendingReservations(searchReservation);
+            ViewBag.Retrievals = Books.GetPendingRetrievals(searchRetrieval);
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult SearchReservations(string searchReservation)
+        {
+            List<Reservation> r = Books.GetPendingReservations(searchReservation);
+            ViewBag.Reservations = r;
+            return View("~/Views/Partials/SearchReserve.cshtml");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult SearchRetrievals (string searchRetrieval)
+        {
+            List<Reservation> r = Books.GetPendingRetrievals(searchRetrieval);
+            ViewBag.Retrievals = r;
+            return View("~/Views/Partials/SearchRetrievals.cshtml");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult AcceptReserevations(String userId ,int BookId)
+        {
+            Books.Reserve(userId, BookId);
+            return RedirectToAction("Reservations");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult AcceptRetrievals(String userId, int BookId)
+        {
+            Books.ReturnById(userId, BookId);
+            return RedirectToAction("Reservations");
+        }
     }
+
 }

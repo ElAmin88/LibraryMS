@@ -16,6 +16,8 @@ namespace LMS.Models
         [Key, Column(Order = 1)]
         public int bookID { get; set; }
 
+        public int status { get; set; } // 0=>waiting approval , 1=>reserved , 2=>waiting for retrieval 
+
         [ForeignKey("userID")]
         public User user { get; set; }
         [ForeignKey("bookID")]

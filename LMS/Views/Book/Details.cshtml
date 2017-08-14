@@ -2,11 +2,14 @@
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
+    int num = 0;
+    int sum = 0;
+    double av = 0;
 }
 <h3>Description: </h3>
 <p>@Model.details</p>
 <br />
-<h3>Your Rating :</h3>
+<h3>Rating :</h3>
 <table class="table table-striped custab">
     <tr>
         <th>Name </th>
@@ -14,14 +17,18 @@
         <th>review</th>
     </tr>
     @foreach (var r in ViewBag.Ratings)
-            {
+    {
         <tr>
-            <td>@r.user.name</td>
+            <td>@r.user.UserName</td>
             <td>@r.rating</td>
             <td>@r.review</td>
         </tr>
-
+        num++;
+        sum+=r.rating;
+    }
+    @{
+        av = sum / num;
     }
 
 </table>
-
+<h3>Overall Rating : @av </h3>

@@ -47,7 +47,13 @@ namespace LMS.Controllers
                     User user = Users.GetByName(name);
                     Users.currentUser = user;
                     Session["UserName"] = user.UserName;
-                    Session["Type"] = "User";
+                    List<IdentityUserRole> role = user.Roles.ToList();
+                    string type=null;
+                    foreach(IdentityUserRole r in role)
+                    {
+                        type = Users.GetRole(r.RoleId);
+                    }
+                    Session["Type"] = type;
                     return RedirectToAction("BooksView", "Book");
                 default:
                     return View();
@@ -78,6 +84,34 @@ namespace LMS.Controllers
                 }           
             }
           
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult AddAdmin()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult AddAdmin(User user, string password)
+        {
+            if (user != null)
+            {
+                if (ModelState.IsValid)
+                {
+                    role = new IdentityRole();
+                    role.Name = "Admin";
+                    rs = new RoleStore<IdentityRole>(new LibraryContext());
+                    rm = new RoleManager<IdentityRole>(rs);
+                    rm.Create(role);
+                    um.Create(user, password);
+                    um.AddToRole(user.Id, "Admin");
+                    return RedirectToAction("BooksView", "Book");
+                }
+            }
+
             return View();
         }
 
