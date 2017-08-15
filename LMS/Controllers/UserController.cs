@@ -49,7 +49,7 @@ namespace LMS.Controllers
 
         public ActionResult SearchUsers(string search)
         {
-            return View(Users.Search(search, ((User)Session["User"])));
+            return View("~/Views/Partials/SearchUsers.cshtml",Users.Search(search, ((User)Session["User"])));
         }
 
         

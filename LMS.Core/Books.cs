@@ -12,9 +12,22 @@ namespace LMS.Core
     {
         static LibraryContext ctx = new LibraryContext();
       
-        public static List<Book> GetAll()
+        public static List<Book> GetAll(User u)
         {
-            return ctx.Books.ToList();
+            List<Book> b1 = ctx.Books.ToList();
+            List<Book> b2 =  ctx.Reservations.Where(x=>x.userID==u.Id).Select(x=>x.book).ToList();
+            for (int i = b1.Count - 1; i >= 0; i--)
+            {
+                foreach (Book b in b2)
+                {
+                    if (b1[i].ID == b.ID)
+                    {
+                        b1.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
+            return b1;
             
         }
 
@@ -58,16 +71,26 @@ namespace LMS.Core
             
         }
 
-        public static List<Book> Search(string search)
+        public static List<Book> Search(User u,string search)
         {
             if (search == null)
             {
-                return Books.GetAll();
+                return Books.GetAll(u);
             }
-            
-            List<Book> books = ctx.Books.Where(a => a.title.Contains(search)).ToList();
-            
-            return books;
+            List<Book> b1 = ctx.Books.Where(x=> x.title.Contains(search)).ToList();
+            List<Book> b2 = ctx.Reservations.Where(x => x.userID == u.Id).Select(x => x.book).ToList();
+            for (int i = b1.Count - 1; i >= 0; i--)
+            {
+                foreach (Book b in b2)
+                {
+                    if (b1[i].ID == b.ID)
+                    {
+                        b1.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
+            return b1;
         }
 
         public static void ReserveRequest(User u,int id)
@@ -92,6 +115,12 @@ namespace LMS.Core
             ctx.SaveChanges();
         }
 
+        public static void RejectReserve(string userId, int bookId)
+        {
+            Reservation r = ctx.Reservations.FirstOrDefault(x => x.userID == userId && x.bookID == bookId);
+            ctx.Reservations.Remove(r);
+            ctx.SaveChanges();
+        }
         public static List<Book> ReservedBooksbyUser(User u)
         {
             List<int> BooksID = ctx.Reservations.Where(a => a.userID == u.Id && a.status==1).Select(b => b.bookID).ToList();
@@ -147,7 +176,13 @@ namespace LMS.Core
             b.available_copies++;
             ctx.SaveChanges();
         }
-        
+        public static void RejectReturnById(string userId, int bookId)
+        {
+            Reservation r = ctx.Reservations.FirstOrDefault(a => a.bookID == bookId && a.userID == userId);
+            r.status = 1;
+            ctx.SaveChanges();
+        }
+
         public static void Rate (User u,Rating r)
         {
             Rating cr = GetRating(u,r.bookID);

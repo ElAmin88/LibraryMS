@@ -27,7 +27,13 @@
         sum+=r.rating;
     }
     @{
-        av = sum / num;
+        if(sum==0 && num==0)
+        {
+        }
+        else
+        {
+            av = sum / num;
+        }
     }
 
 </table>

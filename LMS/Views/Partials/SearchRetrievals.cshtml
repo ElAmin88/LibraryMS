@@ -7,6 +7,7 @@
         <th>User Name </th>
         <th>Book Name</th>
         <th></th>
+        <th></th>
     </tr>
     @foreach (var r in ViewBag.Retrievals)
             {
@@ -14,6 +15,7 @@
             <td>@r.user.UserName</td>
             <td>@r.book.title</td>
             <td>@Html.ActionLink("Accept", "AcceptRetrievals", "Book", new { userId = r.user.Id, bookId = r.book.ID }, null)</td>
+            <td>@Html.ActionLink("Reject", "RejectRetrievals", "Book", new { userId = r.user.Id, bookId = r.book.ID }, null)</td>
         </tr>
 
     }

@@ -15,17 +15,15 @@ namespace LMS.Controllers
         public ActionResult BooksView(string search)
         {
             if (Session["UserName"] != null)
-            {
-                IdentityUser u = new IdentityUser();
-               
-                return View(Books.Search(search));
+            {               
+                return View(Books.Search(((User)Session["User"]),search));
             }
             return RedirectToAction("Login", "Home");
         }
 
         public ActionResult SearchBooks(string search)
         {
-            return View(Books.Search(search));
+            return View("~/Views/Partials/SearchBooks.cshtml",Books.Search(((User)Session["User"]),search));
         }
 
         [Authorize(Roles = "Admin")]
@@ -74,7 +72,7 @@ namespace LMS.Controllers
         public ActionResult EditAndDelete()
         {
 
-            return View(Books.GetAll());
+            return View(Books.GetAll(((User)Session["User"])));
         }
 
         [Authorize(Roles = "User")]
@@ -155,10 +153,21 @@ namespace LMS.Controllers
             return RedirectToAction("Reservations");
         }
 
+        public ActionResult RejectReserevations(String userId, int BookId)
+        {
+            Books.RejectReserve(userId, BookId);
+            return RedirectToAction("Reservations");
+        }
+
         [Authorize(Roles = "Admin")]
         public ActionResult AcceptRetrievals(String userId, int BookId)
         {
             Books.ReturnById(userId, BookId);
+            return RedirectToAction("Reservations");
+        }
+        public ActionResult RejectRetrievals(String userId, int BookId)
+        {
+            Books.RejectReturnById(userId, BookId);
             return RedirectToAction("Reservations");
         }
     }
