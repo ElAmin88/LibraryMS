@@ -13,29 +13,29 @@
 
                 <ul id="menu-content" class="menu-content collapse out">
                     <li>
-                        @Html.ActionLink("Books", "BooksView", "Book")
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Books, "BooksView", "Book")
                         <i class="fa fa-dashboard fa-lg pull-right"></i>
                         
                     </li>
                     <li>
-                        @Html.ActionLink("Edit/Delete", "EditAndDelete", "Book")
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Edit, "EditAndDelete", "Book")
                         <i class="glyphicon glyphicon-pencil pull-right"></i>
 
                     </li>
                     <li>
-                        @Html.ActionLink("Add Book", "AddBook", "Book")
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.AddBook, "AddBook", "Book")
+                        <i class="glyphicon glyphicon-book pull-right"></i>
+                    </li>
+                    <li>
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.AddAdmin, "AddAdmin", "Home")
                         <i class="glyphicon glyphicon-plus pull-right"></i>
                     </li>
                     <li>
-                        @Html.ActionLink("Add Admin", "AddAdmin", "Home")
-                        <i class="glyphicon glyphicon-plus pull-right"></i>
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Reservations, "Reservations", "Book")
+                        <i class="glyphicon glyphicon-bookmark pull-right"></i>
                     </li>
                     <li>
-                        @Html.ActionLink("Reservations", "Reservations", "Book")
-                        <i class="glyphicon glyphicon-plus pull-right"></i>
-                    </li>
-                    <li>
-                        @Html.ActionLink("Log Out", "Logout", "Home")
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Logout, "Logout", "Home")
                         <i class="glyphicon glyphicon-log-out pull-right"></i>
                     </li>
                 </ul>

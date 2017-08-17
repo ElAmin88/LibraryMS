@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<div id="main">
+<div id="main" dir="@LMS.Content.Languages.Lang_resource.dir">
     @using (Html.BeginForm("Update", "Book", FormMethod.Post))
     {
         <label>ID : @Model.ID</label>

@@ -55,3 +55,8 @@ D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\Microsoft.Owin.Hosting.xml
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\System.Net.Http.Formatting.xml
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\System.Web.Http.xml
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\System.Web.Http.Owin.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\ar-EG\LMS.resources.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\LMS.Content.Languages.Lang_resource.resources
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\LMS.Content.Languages.Lang_resource.ar-EG.resources
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\LMS.csproj.GenerateResource.Cache
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\ar-EG\LMS.resources.dll

@@ -4,28 +4,18 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>SearchUsers</title>
-</head>
-<body>
-    <table class="table table-striped custab">
+    <table class="table table-striped custab" dir="@LMS.Content.Languages.Lang_resource.dir">
         <tr>
-            <th>Name </th>
+            <th>@LMS.Content.Languages.Lang_resource.UserName </th>
         </tr>
         <tr></tr>
         @foreach (var d in Model)
             {
             <tr>
                 <td>@d.UserName</td>
-                <td>@Html.ActionLink("Add", "SendFriendRequest", "User", new { name = d.UserName }, null)</td>
+                <td>@Html.ActionLink(@LMS.Content.Languages.Lang_resource.Add, "SendFriendRequest", "User", new { name = d.UserName }, null)</td>
             </tr>
         }
 
     </table>
 
-</body>
-</html>

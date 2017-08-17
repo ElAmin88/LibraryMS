@@ -14,25 +14,30 @@
 
                 <ul id="menu-content" class="menu-content collapse out">
                     <li>
-                        @Html.ActionLink("Books", "BooksView", "Book")
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Books, "BooksView", "Book")
                         <i class="fa fa-dashboard fa-lg pull-right"></i>
 
                     </li>
                     <li>
-                        @Html.ActionLink("Profile","ProfileView", "User")
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Profile,"ProfileView", "User")
                         <i class="glyphicon glyphicon-user pull-right"></i>
 
                     </li>
                     <li>
-                        @Html.ActionLink("Friends", "FriendsView", "User")
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Edit+""+ @LMS.Content.Languages.Lang_resource.Profile, "EditProfile", "User")
+                        <i class="glyphicon glyphicon-user pull-right"></i>
+
+                    </li>
+                    <li>
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Friends, "FriendsView", "User")
                         <i class="glyphicon glyphicon-heart pull-right"></i>
                     </li>
                     <li>
-                        @Html.ActionLink("Reserved Books", "ReservedBooks", "Book")
-                        <i class="glyphicon glyphicon-heart pull-right"></i>
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Reservations, "ReservedBooks", "Book")
+                        <i class="glyphicon glyphicon-bookmark pull-right"></i>
                     </li>
                     <li>
-                        @Html.ActionLink("Log Out", "Logout", "Home")
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Logout, "Logout", "Home")
                         <i class="glyphicon glyphicon-log-out pull-right"></i>
                     </li>
                 </ul>

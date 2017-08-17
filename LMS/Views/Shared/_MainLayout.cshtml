@@ -9,7 +9,7 @@
     @RenderSection("Styles", false)
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper" >
 
         <div id="container">
             @if (@Session["Type"].ToString() != "User")
@@ -21,7 +21,8 @@
                 @Html.Partial("_UserSidebar")
             }
 
-            <div id="main">
+            <div id="main" dir="@LMS.Content.Languages.Lang_resource.dir">
+                @Html.ActionLink("Arabic", "Arabic", "Base")    @Html.ActionLink("English", "English", "Base")
                 @RenderBody()
 
             </div>

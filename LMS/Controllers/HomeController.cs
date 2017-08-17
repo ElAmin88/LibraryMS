@@ -13,15 +13,9 @@ using Microsoft.AspNet.Identity.Owin;
 namespace LMS.Controllers
 {
 
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        public UserStore<User> us = new UserStore<User>(new LibraryContext());
-        public UserManager<User> um => HttpContext.GetOwinContext().Get<UserManager<User>>();
-        public SignInManager<User, string> sim => HttpContext.GetOwinContext().Get<SignInManager<User, string>>();
-
-        public RoleStore<IdentityRole> rs;
-        public RoleManager<IdentityRole> rm;
-        IdentityRole role;
+        
 
         public ActionResult Login()
         {
@@ -45,7 +39,7 @@ namespace LMS.Controllers
                     return View();
                 case SignInStatus.Success:
                     User user = Users.GetByName(name);
-                    Session["User"] = user;
+                    currentUser = user;
                     Session["UserName"] = user.UserName;
                     List<IdentityUserRole> role = user.Roles.ToList();
                     string type=null;
@@ -78,6 +72,7 @@ namespace LMS.Controllers
                     rs = new RoleStore<IdentityRole>(new LibraryContext());
                     rm = new RoleManager<IdentityRole>(rs);
                     rm.Create(role);
+                    user.picture = "~/Content/ProfilePictures/icon-user-default.png";
                     um.Create(user,password);
                     um.AddToRole(user.Id, "User");
                     return RedirectToAction("Login","Home");

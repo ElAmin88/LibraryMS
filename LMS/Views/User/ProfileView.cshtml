@@ -2,21 +2,25 @@
 @{
     ViewBag.Title = "ProfileView";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
-
+    string pic = Model.picture;
 }
 
-<div class="row">
-    <div class="col-sm-6 col-md-2">
-        <img src="http://www.imran.com/xyper_images/icon-user-default.png"
-             alt="" class="img-rounded img-responsive" />
+<div class="row" dir="@LMS.Content.Languages.Lang_resource.dir">
+    <div class="col-sm-6 col-md-2" dir="@LMS.Content.Languages.Lang_resource.dir">
+        <img src=@pic width="200" height="200" /> 
+        @using (Html.BeginForm("UpdateImage", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="File" name="myFile" />
+            <input type="submit" name="Submit" value="submit" />
+        }
     </div>
-    <div class="col-sm-4 col-md-4">
+    <div class="col-sm-4 col-md-4" dir="@LMS.Content.Languages.Lang_resource.dir">
         <blockquote>
-            <p>@Model.UserName</p> <small><cite title="Source Title">Adress  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+            <p>@Model.UserName</p> <small><cite title="Source Title">@LMS.Content.Languages.Lang_resource.Address  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
         </blockquote>
         <p>
-            <i class="glyphicon glyphicon-envelope"></i> @Model.Email
-            <br /> <i class="glyphicon glyphicon-gift"></i>@Model.DOB
+            @LMS.Content.Languages.Lang_resource.Email <i class="glyphicon glyphicon-envelope"></i> @Model.Email
+            @LMS.Content.Languages.Lang_resource.DOB<br /> <i class="glyphicon glyphicon-gift"></i>@Model.DOB
         </p>
     </div>
 </div>

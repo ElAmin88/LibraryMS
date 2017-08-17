@@ -19,9 +19,20 @@ namespace LMS.Core
             IdentityRole role = ctx.Roles.FirstOrDefault(a => a.Id == id);
             return role.Name;
         } 
+
         public static User GetByName(string name)
         {
             User existUser = ctx.Users.FirstOrDefault(a => a.UserName == name);
+            if (existUser != null)
+            {
+                return existUser;
+            }
+            return null;
+
+        }
+        public static User GetByID(string id)
+        {
+            User existUser = ctx.Users.FirstOrDefault(a => a.Id == id);
             if (existUser != null)
             {
                 return existUser;
@@ -40,6 +51,7 @@ namespace LMS.Core
             ctx.Users.Remove(u);
             ctx.SaveChanges();
         }
+
         public static List<User> Search(string search,User u)
         {
             if (search == null)
@@ -63,6 +75,7 @@ namespace LMS.Core
             
             return users;
         }
+
         public static List<User> GetFriends(User u)
         {
             List<string> friendsID = ctx.Friends.Where(a => a.user1ID == u.Id&& a.status==1).Select(b=>b.user2ID).ToList();
@@ -74,6 +87,7 @@ namespace LMS.Core
             }
             return friends;
         }
+
         public static List<User> GetFriendRequest(User u)
         {
             List<string> friendsID = ctx.Friends.Where(a => a.user2ID == u.Id && a.status == 0).Select(b => b.user1ID).ToList();
@@ -99,6 +113,7 @@ namespace LMS.Core
             ctx.Friends.Add(f1);
             ctx.SaveChanges();
         }
+
         public static void AddFriend(User u,string id)
         {
             
@@ -114,5 +129,21 @@ namespace LMS.Core
             ctx.SaveChanges();
         }
         
+        public static void UpdateUserByID(string id,User u)
+        {
+            User user = GetByID(id);
+            user.address = u.address;
+            user.DOB = u.DOB;
+            user.gender = u.gender;
+            user.Email = u.Email;
+            ctx.SaveChanges();
+
+        }
+        public static void UpdateLanguage(User u,string lang)
+        {
+            User user = GetByID(u.Id);
+            user.lang = lang;
+            ctx.SaveChanges();
+        }
     }
 }

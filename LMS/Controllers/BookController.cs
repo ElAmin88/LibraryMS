@@ -9,21 +9,17 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace LMS.Controllers
 {
-    public class BookController : Controller
+    public class BookController : BaseController
     {
-        
+        [Authorize]
         public ActionResult BooksView(string search)
         {
-            if (Session["UserName"] != null)
-            {               
-                return View(Books.Search(((User)Session["User"]),search));
-            }
-            return RedirectToAction("Login", "Home");
+            return View(Books.Search(currentUser,search));
         }
 
         public ActionResult SearchBooks(string search)
         {
-            return View("~/Views/Partials/SearchBooks.cshtml",Books.Search(((User)Session["User"]),search));
+            return View("~/Views/Partials/SearchBooks.cshtml",Books.Search(currentUser, search));
         }
 
         [Authorize(Roles = "Admin")]
@@ -72,19 +68,19 @@ namespace LMS.Controllers
         public ActionResult EditAndDelete()
         {
 
-            return View(Books.GetAll(((User)Session["User"])));
+            return View(Books.GetAll(currentUser));
         }
 
         [Authorize(Roles = "User")]
         public ActionResult ReservedBooks()
         {
 
-            return View(Books.ReservedBooksbyUser((User)Session["User"]));
+            return View(Books.ReservedBooksbyUser(currentUser));
         }
         [Authorize(Roles = "User")]
         public ActionResult Reserve(int id)
         {
-            Books.ReserveRequest(((User)Session["User"]), id);
+            Books.ReserveRequest(currentUser, id);
              return RedirectToAction("BooksView");
         }
 
@@ -109,8 +105,8 @@ namespace LMS.Controllers
         [HttpPost]
         public ActionResult AddRating(Rating r)
         {
-            r.userID = ((User)Session["User"]).Id;
-            Books.Rate(((User)Session["User"]),r);
+            r.userID = currentUser.Id;
+            Books.Rate(currentUser, r);
 
             return RedirectToAction("BooksView");
         }
@@ -118,7 +114,7 @@ namespace LMS.Controllers
         [Authorize(Roles = "User")]
         public ActionResult ReturnBook(int id )
         {
-            Books.RequestReturnByID(((User)Session["User"]).Id,id);
+            Books.RequestReturnByID(currentUser.Id,id);
             return RedirectToAction("Rating", new { id = id });
         }
 

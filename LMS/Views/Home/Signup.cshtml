@@ -24,7 +24,7 @@
         @using (Html.BeginForm("Signup", "Home", FormMethod.Post))
         {
             <div class="form-group">
-                <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                <label for="name" class="cols-sm-2 control-label">@LMS.Content.Languages.Lang_resource.UserName</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                <label for="email" class="cols-sm-2 control-label">@LMS.Content.Languages.Lang_resource.Email</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="password" class="cols-sm-2 control-label">Password</label>
+                <label for="password" class="cols-sm-2 control-label">@LMS.Content.Languages.Lang_resource.Password</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="confirm" class="cols-sm-2 control-label">Date</label>
+                <label for="confirm" class="cols-sm-2 control-label">@LMS.Content.Languages.Lang_resource.DOB</label>
                 <div class="cols-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>

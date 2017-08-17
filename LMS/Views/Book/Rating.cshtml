@@ -6,7 +6,7 @@
 }
 
 <h2>Please Rate Book</h2>
-<div>
+<div dir="@LMS.Content.Languages.Lang_resource.dir">
     @using (Html.BeginForm("AddRating", "Book", FormMethod.Post))
     {
         @Html.HiddenFor(a=>a.bookID,Model.bookID)
@@ -24,10 +24,10 @@
        
         @:5 @Html.RadioButtonFor(a => a.rating, "5")
         
-        @:<br />
-        @:Review : 
+        <br />
+        @LMS.Content.Languages.Lang_resource.Review 
         @Html.TextAreaFor(a => a.review)
-        @:<br />
+        <br />
         <input type="submit" value="Rate" />
 
     }

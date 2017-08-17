@@ -2,10 +2,10 @@
     Layout = null;
 }
 
-<table class="table table-striped custab">
+<table class="table table-striped custab" dir="@LMS.Content.Languages.Lang_resource.dir">
     <tr>
-        <th>User Name </th>
-        <th>Book Name</th>
+        <th>@LMS.Content.Languages.Lang_resource.UserName </th>
+        <th>@LMS.Content.Languages.Lang_resource.BookName</th>
         <th></th>
         <th></th>
     </tr>
@@ -14,8 +14,8 @@
         <tr>
             <td>@r.user.UserName</td>
             <td>@r.book.title</td>
-            <td>@Html.ActionLink("Accept", "AcceptReserevations", "Book", new { userId = r.user.Id, bookId = r.book.ID }, null)</td>
-            <td>@Html.ActionLink("Reject", "RejectReserevations", "Book", new { userId = r.user.Id, bookId = r.book.ID }, null)</td>        
+            <td>@Html.ActionLink(@LMS.Content.Languages.Lang_resource.Accept, "AcceptReserevations", "Book", new { userId = r.user.Id, bookId = r.book.ID }, null)</td>
+            <td>@Html.ActionLink(@LMS.Content.Languages.Lang_resource.Reject, "RejectReserevations", "Book", new { userId = r.user.Id, bookId = r.book.ID }, null)</td>        
         </tr>
 
     }

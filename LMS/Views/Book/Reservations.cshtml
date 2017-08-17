@@ -4,25 +4,25 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<div class="col-sm-6">
-    <h3>Reservations</h3>
+<div class="col-sm-6" dir="@LMS.Content.Languages.Lang_resource.dir">
+    <h3>@LMS.Content.Languages.Lang_resource.Reservations</h3>
     @using (Ajax.BeginForm("SearchReservations", "Book", new AjaxOptions { UpdateTargetId = "Reservation" }))
     {
         @Html.TextBox("searchReservation")
         <input type="submit" id="btnsearchReservation" name="submit" value="search" />
     }
-    <div id="Reservation">
+    <div id="Reservation" dir="@LMS.Content.Languages.Lang_resource.dir">
         @Html.Partial("~/Views/Partials/SearchReserve.cshtml")
     </div>
 </div>
-<div class="col-sm-6">
-    <h3>Retrievals</h3>
+<div class="col-sm-6" dir="@LMS.Content.Languages.Lang_resource.dir">
+    <h3>@LMS.Content.Languages.Lang_resource.Retrievals</h3>
     @using (Ajax.BeginForm("SearchRetrievals", "Book", new AjaxOptions { UpdateTargetId = "retrievals" }))
     {
         @Html.TextBox("searchRetrieval")
         <input type="submit" id="btnsearchRetrieval" name="submit" value="search" />
     }
-    <div id="retrievals">
+    <div id="retrievals" dir="@LMS.Content.Languages.Lang_resource.dir">
         @Html.Partial("~/Views/Partials/SearchRetrievals.cshtml")
     </div>
 </div>

@@ -6,15 +6,15 @@
     int sum = 0;
     double av = 0;
 }
-<h3>Description: </h3>
+<h3>@LMS.Content.Languages.Lang_resource.Description: </h3>
 <p>@Model.details</p>
 <br />
 <h3>Rating :</h3>
 <table class="table table-striped custab">
     <tr>
-        <th>Name </th>
-        <th>Rating</th>
-        <th>review</th>
+        <th>@LMS.Content.Languages.Lang_resource.UserName </th>
+        <th>@LMS.Content.Languages.Lang_resource.Rating</th>
+        <th>@LMS.Content.Languages.Lang_resource.Review</th>
     </tr>
     @foreach (var r in ViewBag.Ratings)
     {
@@ -37,4 +37,4 @@
     }
 
 </table>
-<h3>Overall Rating : @av </h3>
+<h3>Overall Rating : @av / 5 </h3>

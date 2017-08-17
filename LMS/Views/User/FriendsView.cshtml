@@ -4,8 +4,8 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<div class="row">
-    <div class="col-sm-3">
+<div class="row" dir="@LMS.Content.Languages.Lang_resource.dir">
+    <div class="col-sm-3" dir="@LMS.Content.Languages.Lang_resource.dir">
         @using (Ajax.BeginForm("SearchUsers", "User", new AjaxOptions { UpdateTargetId = "ajax" }))
         {
 
@@ -13,16 +13,16 @@
             <input type="submit" id="btnSearch" name="submit" value="search" />
 
         }
-        <div id="ajax">
+        <div id="ajax" dir="@LMS.Content.Languages.Lang_resource.dir">
             @Html.Partial("~/Views/Partials/SearchUsers.cshtml")
         </div>
         
     </div>
 
-    <div class="col-sm-6">
-        <table class="table table-striped custab">
+    <div class="col-sm-6" dir="@LMS.Content.Languages.Lang_resource.dir">
+        <table class="table table-striped custab" dir="@LMS.Content.Languages.Lang_resource.dir">
             <tr>
-                <th>Name </th>
+                <th>@LMS.Content.Languages.Lang_resource.UserName </th>
             </tr>
             @foreach (var user in ViewBag.Friends)
             {
@@ -34,17 +34,17 @@
 
         </table>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-3" dir="@LMS.Content.Languages.Lang_resource.dir">
         <table class="table table-striped custab">
             <tr>
-                <th>Friend Requests </th>
+                <th>@LMS.Content.Languages.Lang_resource.FriendRequests </th>
             </tr>
             <tr></tr>
             @foreach (var d in ViewBag.Requests)
             {
                 <tr>
-                    <td>@d.name</td>
-                    <td>@Html.ActionLink("Add", "AddFriend", "User", new { id = d.ID  }, null)</td>
+                    <td>@d.UserName</td>
+                    <td>@Html.ActionLink("Add", "AddFriend", "User", new { id = d.Id  }, null)</td>
                 </tr>
             }
         </table>

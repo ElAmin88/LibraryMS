@@ -5,8 +5,8 @@
     
 }
 
-<div class="row" style="z-index:-1">
-    <div class="col-sm-3">
+<div class="row" style="z-index:-1" dir="@LMS.Content.Languages.Lang_resource.dir">
+    <div class="col-sm-3" dir="@LMS.Content.Languages.Lang_resource.dir">
     @using (Ajax.BeginForm("SearchBooks", "Book", new AjaxOptions { UpdateTargetId = "ajax" }))
     {
         @Html.TextBox("search")
@@ -14,7 +14,7 @@
     }
     </div>
 
-    <div class="col-sm-6">
+    <div class="col-sm-6" dir="@LMS.Content.Languages.Lang_resource.dir">
         <div id="ajax">
             @Html.Partial("~/Views/Partials/SearchBooks.cshtml")
         </div>
