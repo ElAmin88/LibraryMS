@@ -14,6 +14,8 @@ namespace LMS.Core
       
         public static List<Book> GetAll(User u)
         {
+            if (u == null)
+                return ctx.Books.ToList();
             List<Book> b1 = ctx.Books.ToList();
             List<Book> b2 =  ctx.Reservations.Where(x=>x.userID==u.Id).Select(x=>x.book).ToList();
             for (int i = b1.Count - 1; i >= 0; i--)

@@ -28,6 +28,7 @@ namespace LMS.Models
 
         public string lang { get; set; }
         public ICollection<Friend> Friends { get; set; }
+        public ICollection<Message> Messages { get; set; }
         public ICollection<Reservation> Reservations { get; set; }
         public ICollection<Rating> Ratings { get; set; }
 

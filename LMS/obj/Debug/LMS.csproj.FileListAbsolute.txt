@@ -60,3 +60,5 @@ D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\LMS.Content.Languages.Lang_reso
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\LMS.Content.Languages.Lang_resource.ar-EG.resources
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\LMS.csproj.GenerateResource.Cache
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\ar-EG\LMS.resources.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\System.Web.Http.WebHost.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\System.Web.Http.WebHost.xml

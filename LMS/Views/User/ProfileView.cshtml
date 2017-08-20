@@ -7,7 +7,7 @@
 
 <div class="row" dir="@LMS.Content.Languages.Lang_resource.dir">
     <div class="col-sm-6 col-md-2" dir="@LMS.Content.Languages.Lang_resource.dir">
-        <img src=@pic width="200" height="200" /> 
+        <img src="~/Content/ProfilePictures/@Model.picture" width="200" height="200" /> 
         @using (Html.BeginForm("UpdateImage", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <input type="File" name="myFile" />

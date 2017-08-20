@@ -27,3 +27,9 @@ D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\Microsoft.Owin.Security.xm
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\Newtonsoft.Json.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\System.Net.Http.Formatting.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\System.Web.Http.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\System.Web.Http.WebHost.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\System.Net.Http.Formatting.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\System.Web.Http.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\System.Web.Http.WebHost.xml

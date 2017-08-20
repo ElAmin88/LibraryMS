@@ -1,0 +1,22 @@
+﻿@model IEnumerable<LMS.Models.Message>
+@{
+    ViewBag.Title = "Messages";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-striped custab">
+    <tr>
+        <th>User Name</th>
+        <th>Message</th>
+    </tr>
+    <tr></tr>
+    @foreach (var m in Model)
+            {
+        <tr>
+            <td>@m.user1.UserName</td>
+            <td>@m.message</td>
+            <td>@Html.ActionLink("Send Message", "SendMessage", "User", new { id = m.user1ID }, null)</td>
+        </tr>
+    }
+</table>
+

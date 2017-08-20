@@ -42,6 +42,14 @@ namespace LMS.Controllers
 
         }
 
+        [Authorize(Roles = "User")]
+        public ActionResult RemoveFriend(string id)
+        {
+            Users.RemoveFriend(currentUser, id);
+            return RedirectToAction("FriendsView");
+
+        }
+
         public ActionResult SearchUsers(string search)
         {
             return View("~/Views/Partials/SearchUsers.cshtml",Users.Search(search, currentUser));
@@ -63,10 +71,30 @@ namespace LMS.Controllers
         {
             string path = Server.MapPath("~/Content/ProfilePictures/") +currentUser.Id+".jpg";
             myFile.SaveAs(path);
-            currentUser.picture = "~/Content/ProfilePictures/" + currentUser.Id + ".jpg";
+            currentUser.picture =currentUser.Id + ".jpg";
             Users.UpdateUserByID(currentUser.Id, currentUser);
             return RedirectToAction("ProfileView");
         }
+        public ActionResult Messages ()
+        {
+            return View(Users.GetAllMessages(currentUser));
+        }
+
+        public ActionResult SendMessage(string id)
+        {
+
+            return View(Users.GetByID(id));
+        }
+
+        [HttpPost]
+        public ActionResult SendMessage(string Id,string message)
+        {
+            Users.SendMessage(currentUser, Id, message);
+            return RedirectToAction("Messages");
+
+        }
+
+
 
     }
 }

@@ -72,7 +72,7 @@ namespace LMS.Controllers
                     rs = new RoleStore<IdentityRole>(new LibraryContext());
                     rm = new RoleManager<IdentityRole>(rs);
                     rm.Create(role);
-                    user.picture = "~/Content/ProfilePictures/icon-user-default.png";
+                    user.picture = "icon-user-default.png";
                     um.Create(user,password);
                     um.AddToRole(user.Id, "User");
                     return RedirectToAction("Login","Home");

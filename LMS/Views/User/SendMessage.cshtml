@@ -1,0 +1,14 @@
+﻿@model LMS.Models.User
+@{
+    ViewBag.Title = "SendMessage";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@Html.Label(Model.UserName)
+
+@using (Html.BeginForm("SendMessage", "User", FormMethod.Post))
+{
+    @Html.Hidden(Model.Id)
+    @Html.TextArea("message")
+    <input type="submit" value="Send" name="Send"/>
+}

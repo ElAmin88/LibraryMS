@@ -129,6 +129,16 @@ namespace LMS.Core
             ctx.SaveChanges();
         }
         
+        public static void RemoveFriend(User u , string id)
+        {
+            List <Friend> f = ctx.Friends.Where(a => (a.user1ID == u.Id && a.user2ID == id) ||(a.user2ID==u.Id && a.user1ID==id) ).ToList();
+            foreach(Friend fr in f)
+            {
+                ctx.Friends.Remove(fr);
+                ctx.SaveChanges();
+            }
+        }
+
         public static void UpdateUserByID(string id,User u)
         {
             User user = GetByID(id);
@@ -139,10 +149,28 @@ namespace LMS.Core
             ctx.SaveChanges();
 
         }
+
         public static void UpdateLanguage(User u,string lang)
         {
             User user = GetByID(u.Id);
             user.lang = lang;
+            ctx.SaveChanges();
+        }
+
+        public static List<Message> GetAllMessages(User u)
+        {
+            return ctx.Messages.Where(a => a.user2ID == u.Id).ToList();
+        }
+
+        public static void SendMessage(User u , string id ,string msg)
+        {
+            Message m = new Message
+            {
+                user1ID=u.Id,
+                user2ID=id,
+                message = msg
+            };
+            ctx.Messages.Add(m);
             ctx.SaveChanges();
         }
     }
