@@ -1,0 +1,54 @@
+﻿@{
+    LMS.Models.User u = (LMS.Models.User)Session["User"];
+    
+}
+<aside>
+    <nav class="navbar navbar-inverse sidebar navbar-fixed-top" role="navigation">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <div class="nav-side-menu">
+            <div class="brand" style="height:70px">
+                <img id="logo" src="~/Content/ProfilePictures/@u.picture" width="50" height="50" />
+                @u.UserName
+                <i class="glyphicon glyphicon-align-left pull-right"></i>
+            </div>
+            <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+            <div class="menu-list">
+
+                <ul id="menu-content" class="menu-content collapse out">
+                    <li>
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Books, "BooksView", "Book")
+                        <i class="fa fa-dashboard fa-lg pull-right"></i>
+
+                    </li>
+                    <li>
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Profile,"ProfileView", "User")
+                        <i class="glyphicon glyphicon-user pull-right"></i>
+
+                    </li>
+                    <li>
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Edit+""+ @LMS.Content.Languages.Lang_resource.Profile, "EditProfile", "User")
+                        <i class="glyphicon glyphicon-user pull-right"></i>
+
+                    </li>
+                    <li>
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Friends, "FriendsView", "User")
+                        <i class="glyphicon glyphicon-heart pull-right"></i>
+                    </li>
+                    <li>
+                        @Html.ActionLink("Messages", "Messages", "User")
+                        <i class="glyphicon glyphicon-heart pull-right"></i>
+                    </li>
+                    <li>
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Reservations, "ReservedBooks", "Book")
+                        <i class="glyphicon glyphicon-bookmark pull-right"></i>
+                    </li>
+                    <li>
+                        @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Logout, "Logout", "Home")
+                        <i class="glyphicon glyphicon-log-out pull-right"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</aside>

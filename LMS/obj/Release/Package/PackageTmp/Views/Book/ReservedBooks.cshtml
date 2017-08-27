@@ -1,0 +1,30 @@
+﻿@model IEnumerable<LMS.Models.Book>
+@{
+    ViewBag.Title = "ReservedBooks";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="row" style="z-index:-1" dir="@LMS.Content.Languages.Lang_resource.dir">
+    
+    <div class="col-sm-6" dir="@LMS.Content.Languages.Lang_resource.dir">
+        <table class="table table-striped custab ">
+            <thead>
+                <tr>
+                    <th>@LMS.Content.Languages.Lang_resource.Title</th>
+                    <th>@LMS.Content.Languages.Lang_resource.ISBN</th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.title</td>
+                    <td>@d.ISBN</td>
+                    <td>@Html.ActionLink(@LMS.Content.Languages.Lang_resource.ReturnBook, "ReturnBook", "Book", new { id = d.ID }, null)</td>
+                </tr>
+
+            }
+        </table>
+    </div>
+</div>
+

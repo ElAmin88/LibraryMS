@@ -30,6 +30,7 @@ namespace LMS.Core
             return null;
 
         }
+
         public static User GetByID(string id)
         {
             User existUser = ctx.Users.FirstOrDefault(a => a.Id == id);
@@ -173,5 +174,6 @@ namespace LMS.Core
             ctx.Messages.Add(m);
             ctx.SaveChanges();
         }
+
     }
 }

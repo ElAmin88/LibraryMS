@@ -26,7 +26,7 @@ namespace LMS
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Home/Login"),
             });
-
+            app.MapSignalR();
         }
     }
 }

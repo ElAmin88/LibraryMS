@@ -2,24 +2,31 @@
 
 @{
     ViewBag.Title = "EditBook";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-@section Styles {
-    <link href="@Url.Content("~/Content/CSS/BooksView.css")" rel="stylesheet" type="text/css" />
-    <div id="main">
-        @using (Html.BeginForm("EditBook", "Book", FormMethod.Post))
-        {
-            <label>ID : @Model.ID</label> <br />
-            @Html.LabelFor(a => a.title)
-            @Html.TextBoxFor(a => a.title)
-            <br />
-            @Html.LabelFor(a => a.ISBN)
-            @Html.TextBoxFor(a => a.ISBN)
-            <input type="submit" value="Update" />
-        }
 
-    </div>
+
+
+@using (Html.BeginForm("EditBook", "Book", FormMethod.Post))
+{
+    <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>@LMS.Content.Languages.Lang_resource.Title</th>
+                <th>@LMS.Content.Languages.Lang_resource.ISBN</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>@Html.TextBoxFor(a => a.title)</td>
+            <td>@Html.TextBoxFor(a => a.ISBN)</td>
+            
+        </tr>
+    </table>
+    @Html.LabelFor(a => a.details)
+    @Html.TextAreaFor(a => a.details)
+    <input type="submit" value="Update" />
+
 }
 
 

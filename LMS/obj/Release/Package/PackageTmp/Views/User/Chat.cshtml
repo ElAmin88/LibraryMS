@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Chat";
+    Layout = null;
+}
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+<script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
+<script src="~/signalR/hubs/"></script>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+@Html.TextArea("Message")
+<button id="send" onclick="Btnclick()">Send</button>
+<br />
+<input type="text"  id="room" />
+<button id="Jroom" onclick="BtnJroom()">Send</button>
+
+<div id="Msgs">
+
+</div>
+<script>
+    $(function () {
+        chat = $.connection.chatHub;
+        chat.client.BroadcastMessage = function (name, message) {
+            $('#Msgs').append(name + message+"\n");
+            
+        };
+        $.connection.hub.start().done(function () {
+            
+        });
+    });
+
+    function Btnclick()
+    {
+        chat.server.sendRoom( $('#room').val(),"Amin","Hello");
+    }
+    function BtnJroom() {
+        chat.server.joinChat("Amin", $('#room').val()); 
+    }
+</script>

@@ -82,13 +82,13 @@ namespace LMS.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+        
         public ActionResult AddAdmin()
         {
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+        
         [HttpPost]
         public ActionResult AddAdmin(User user, string password)
         {

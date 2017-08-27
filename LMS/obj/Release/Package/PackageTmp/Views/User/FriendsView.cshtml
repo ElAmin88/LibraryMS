@@ -1,42 +1,58 @@
 ﻿@model IEnumerable<LMS.Models.User>
 @{
     ViewBag.Title = "FriendsView";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-@section Styles {
-    <link href="@Url.Content("~/Content/CSS/BooksView.css")" rel="stylesheet" type="text/css" />
-}
-@using (Html.BeginForm("FriendsView", "User", FormMethod.Get))
-{
-    @Html.TextBox("search")
-    <input type="submit" name="submit" value="search" />
-    
-    
-}
-<table  border="1">
-    <tr>
-        <th>Name </th>
-    </tr>
-    <tr></tr>
-    @foreach (var d in Model)
-    {
-        <tr>
-            <td>@d.name</td>
-            <td>@Html.ActionLink("Add", "AddFriend", "User", new { name = d.name}, null)</td>
-        </tr>
-    }
 
-</table>
-<table style="float:right">
-    <tr>
-        <th>Name </th>
-    </tr>
-    @foreach (var user in ViewBag.Friends)
-    {
-    <tr>
-        <td>@user.name</td>
-    </tr>
-    
-    }
-    
-</table>
+<div class="row" dir="@LMS.Content.Languages.Lang_resource.dir">
+    <div class="col-sm-3" dir="@LMS.Content.Languages.Lang_resource.dir">
+        @using (Ajax.BeginForm("SearchUsers", "User", new AjaxOptions { UpdateTargetId = "ajax" }))
+        {
+
+            @Html.TextBox("search")
+            <input type="submit" id="btnSearch" name="submit" value="search" />
+
+        }
+        <div id="ajax" dir="@LMS.Content.Languages.Lang_resource.dir">
+            @Html.Partial("~/Views/Partials/SearchUsers.cshtml")
+        </div>
+        
+    </div>
+
+    <div class="col-sm-6" dir="@LMS.Content.Languages.Lang_resource.dir">
+        <table class="table table-striped custab" dir="@LMS.Content.Languages.Lang_resource.dir">
+            <tr>
+                <th>@LMS.Content.Languages.Lang_resource.UserName </th>
+                <th></th>
+                <th></th>
+            </tr>
+            @foreach (var user in ViewBag.Friends)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@Html.ActionLink("Remove", "RemoveFriend", "User", new { id = user.Id }, null)</td>
+                    <td>@Html.ActionLink("Send Message", "SendMessage", "User", new { id = user.Id }, null)</td>
+                </tr>
+
+            }
+
+        </table>
+    </div>
+    <div class="col-sm-3" dir="@LMS.Content.Languages.Lang_resource.dir">
+        <table class="table table-striped custab">
+            <tr>
+                <th>@LMS.Content.Languages.Lang_resource.FriendRequests </th>
+            </tr>
+            <tr></tr>
+            @foreach (var d in ViewBag.Requests)
+            {
+                <tr>
+                    <td>@d.UserName</td>
+                    <td>@Html.ActionLink("Add", "AddFriend", "User", new { id = d.Id  }, null)</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div> 
+
+

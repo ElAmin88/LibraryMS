@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<table class="table table-striped custab ">
+    <thead>
+        <tr>
+            <th>@LMS.Content.Languages.Lang_resource.Title</th>
+            <th>@LMS.Content.Languages.Lang_resource.ISBN</th>
+            <th>@LMS.Content.Languages.Lang_resource.Description</th>
+            <th>@LMS.Content.Languages.Lang_resource.NumberOfCopies</th>
+            <th>@LMS.Content.Languages.Lang_resource.AvailableCopies</th>
+            @if (@Session["Type"].ToString() == "User")
+            {
+                <th>@LMS.Content.Languages.Lang_resource.Reservations</th>
+            }
+        </tr>
+    </thead>
+    @foreach (var d in Model)
+            {
+        <tr>
+            <td>@d.title</td>
+            <td>@d.ISBN</td>
+            <td>@Html.ActionLink(@LMS.Content.Languages.Lang_resource.Details, "Details", "Book", new { id = d.ID }, null)</td>
+            <td>@d.num_copies</td>
+            <td>@d.available_copies</td>
+            @if (@Session["Type"].ToString() == "User")
+            {
+                <td>
+                    @if (d.available_copies != 0)
+                    {
+                        using (Html.BeginForm("BooksView", "Book", FormMethod.Post))
+                        {
+                            @Html.ActionLink(@LMS.Content.Languages.Lang_resource.Reserve, "Reserve", "Book", new { id = d.ID }, null)
+                        }
+                    }
+                    else
+                    {
+                        @LMS.Content.Languages.Lang_resource.CantReserve
+                    }
+                </td>
+            }
+
+        </tr>
+
+    }
+</table>

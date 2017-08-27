@@ -1,0 +1,36 @@
+﻿@model LMS.Models.Rating
+@{
+    ViewBag.Title = "Rating";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    
+}
+
+<h2>Please Rate Book</h2>
+<div dir="@LMS.Content.Languages.Lang_resource.dir">
+    @using (Html.BeginForm("AddRating", "Book", FormMethod.Post))
+    {
+        @Html.HiddenFor(a=>a.bookID,Model.bookID)
+
+        @:Rating: 
+        @:1 @Html.RadioButtonFor(a => a.rating, "1")
+
+
+        @:2 @Html.RadioButtonFor(a => a.rating, "2")
+
+
+        @:3 @Html.RadioButtonFor(a => a.rating, "3")
+       
+        @:4 @Html.RadioButtonFor(a => a.rating, "4")
+       
+        @:5 @Html.RadioButtonFor(a => a.rating, "5")
+        
+        <br />
+        @LMS.Content.Languages.Lang_resource.Review 
+        @Html.TextAreaFor(a => a.review)
+        <br />
+        <input type="submit" value="Rate" />
+
+    }
+
+
+</div>

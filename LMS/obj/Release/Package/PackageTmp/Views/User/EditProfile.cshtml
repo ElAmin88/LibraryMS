@@ -1,0 +1,42 @@
+﻿@model LMS.Models.User
+@{
+    ViewBag.Title = "EditProfile";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateProfile", "User", FormMethod.Post))
+{
+    <table class="table table-striped custab" dir="@LMS.Content.Languages.Lang_resource.dir">
+        <thead>
+            <tr>
+                <th>@Model.UserName</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@LMS.Content.Languages.Lang_resource.Email</td>
+                <td>@Html.TextBoxFor(a => a.Email)</td>
+            </tr>
+            <tr>
+                <td>@LMS.Content.Languages.Lang_resource.DOB</td>
+                <td>@Html.TextBoxFor(a => a.DOB)</td>
+            </tr>
+            <tr>
+                <td>@LMS.Content.Languages.Lang_resource.Address</td>
+                <td>@Html.TextBoxFor(a => a.address)</td>
+            </tr>
+            <tr>
+                <td>@LMS.Content.Languages.Lang_resource.Gender</td>
+                <td>
+                    @LMS.Content.Languages.Lang_resource.Male @Html.RadioButtonFor(a => a.gender, "true")
+                    @LMS.Content.Languages.Lang_resource.Female @Html.RadioButtonFor(a => a.gender, "false")
+                </td>
+            </tr>
+            
+        </tbody>
+        
+    </table>
+    <input type="submit" value="Update" />
+
+}

@@ -4,29 +4,67 @@
     Layout = "~/Views/Shared/_SignLayout.cshtml";
 }
 
+<link href="~/Content/Signup.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css">
+<!-- Website CSS style -->
+<link rel="stylesheet" type="text/css" href="assets/css/main.css">
+<!-- Website Font style -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 
-<div id="information">
-    @using (Html.BeginForm("Signup", "Home", FormMethod.Post))
-    {
-        @Html.LabelFor(a => a.name)
-        @Html.TextBoxFor(a => a.name)
-        @Html.ValidationMessageFor(a=>a.name)
-        <br />
-        @Html.LabelFor(a => a.password)
-        @Html.PasswordFor(a => a.password)
-        @Html.ValidationMessageFor(a => a.password)
-        <br />
-        @Html.LabelFor(a => a.email)
-        @Html.TextBoxFor(a => a.email)
-        @Html.ValidationMessageFor(a => a.email)
-        <br />
-        @Html.LabelFor(a=>a.age)
-        @Html.TextBoxFor(a=>a.age)
-        <br />
-        @Html.LabelFor(a => a.type)
-        @Html.TextBoxFor(a => a.type)
-        
+<!-- Google Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
 
-        <input type="submit" value="Register" />
-    }
+<div class="row main">
+    <div class="panel-heading">
+        <div class="panel-title text-center">
+        </div>
+    </div>
+    <div class="main-login main-center">
+        @using (Html.BeginForm("Signup", "Home", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="name" class="cols-sm-2 control-label">@LMS.Content.Languages.Lang_resource.UserName</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                        @Html.TextBoxFor(a => a.UserName)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">@LMS.Content.Languages.Lang_resource.Email</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                        @Html.TextBoxFor(a => a.Email)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="cols-sm-2 control-label">@LMS.Content.Languages.Lang_resource.Password</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                        @Html.Password("password")
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirm" class="cols-sm-2 control-label">@LMS.Content.Languages.Lang_resource.DOB</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                        @Html.EditorFor(a => a.DOB)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <input class="btn btn-primary btn-lg btn-block login-button" type="submit" value="Register" />
+            </div>
+            <div class="login-register">
+                @Html.ActionLink("Login", "Login", "Home")
+            </div>
+        }
+    </div>
 </div>

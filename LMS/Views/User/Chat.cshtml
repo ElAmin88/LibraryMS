@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Chat";
+    Layout ="~/Views/Shared/_MainLayout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
+<script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
+<script src="~/signalR/hubs/"></script>
+
+<br />
+
+Room Name : <input type="text" id="room" />
+<button id="Jroom" onclick="BtnJroom()">Send</button>
+<br />
+<br />
+Message : @Html.TextBox("Message")
+<button id="send" onclick="Btnclick()">Send</button>
+<br />
+
+
+<div id="Msgs">
+    
+</div>
+<script>
+    $(function () {
+
+        chat = $.connection.chatHub;
+        chat.client.BroadcastMessage = function (name, message) {
+            $('#Msgs').append(name + message + "<br />");
+
+        };
+        $.connection.hub.start().done(function () {
+            alert("Connected");
+        });
+    });
+
+    function Btnclick()
+    {
+        if("@Session["UserName"].ToString()"!=null)
+        {
+            chat.server.sendRoom( $('#room').val(),"@Session["UserName"].ToString() : ",$('#Message').val());
+        }
+        else {
+            chat.server.sendRoom( $('#room').val(),"Amin","Hello");
+
+        }
+    }
+    function BtnJroom() {
+        if("@Session["UserName"].ToString()"!=null)
+        {
+            chat.server.joinChat("@Session["UserName"].ToString() : ", $('#room').val());
+
+        }
+        else {
+            chat.server.joinChat("Amin", $('#room').val());
+
+        }
+    }
+</script>

@@ -1,11 +1,8 @@
 ﻿using LMS.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LMS.Core;
-using System.IO;
 
 namespace LMS.Controllers
 {
@@ -92,6 +89,11 @@ namespace LMS.Controllers
             Users.SendMessage(currentUser, Id, message);
             return RedirectToAction("Messages");
 
+        }
+
+        public ActionResult Chat()
+        {
+            return View();
         }
 
 

@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+<table class="table table-striped custab" dir="@LMS.Content.Languages.Lang_resource.dir">
+    <tr>
+        <th>@LMS.Content.Languages.Lang_resource.UserName </th>
+        <th>@LMS.Content.Languages.Lang_resource.BookName</th>
+        <th></th>
+        <th></th>
+    </tr>
+    @foreach (var r in ViewBag.Retrievals)
+            {
+        <tr>
+            <td>@r.user.UserName</td>
+            <td>@r.book.title</td>
+            <td>@Html.ActionLink(@LMS.Content.Languages.Lang_resource.Accept, "AcceptRetrievals", "Book", new { userId = r.user.Id, bookId = r.book.ID }, null)</td>
+            <td>@Html.ActionLink(@LMS.Content.Languages.Lang_resource.Reject, "RejectRetrievals", "Book", new { userId = r.user.Id, bookId = r.book.ID }, null)</td>
+        </tr>
+
+    }
+</table>

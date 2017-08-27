@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using LMS.Model;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -31,6 +32,10 @@ namespace LMS.Models
         public ICollection<Message> Messages { get; set; }
         public ICollection<Reservation> Reservations { get; set; }
         public ICollection<Rating> Ratings { get; set; }
+
+        public ICollection<User_Group> User_Group { get; set; }
+        public ICollection<Messages> Msgs { get; set; }
+
 
 
     }

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<LMS.Models.User>
+
+@{
+    Layout = null;
+}
+
+    <table class="table table-striped custab" dir="@LMS.Content.Languages.Lang_resource.dir">
+        <tr>
+            <th>@LMS.Content.Languages.Lang_resource.UserName </th>
+        </tr>
+        <tr></tr>
+        @foreach (var d in Model)
+            {
+            <tr>
+                <td>@d.UserName</td>
+                <td>@Html.ActionLink(@LMS.Content.Languages.Lang_resource.Add, "SendFriendRequest", "User", new { name = d.UserName }, null)</td>
+            </tr>
+        }
+
+    </table>
+

@@ -1,26 +1,28 @@
 ﻿@model LMS.Models.User
 @{
     ViewBag.Title = "ProfileView";
-    if (@Session["Type"].ToString() != "user")
-    {
-        Layout = "~/Views/Shared/_AdminLayout.cshtml";
-    }
-    else
-    {
-        Layout = "~/Views/Shared/_UserLayout.cshtml";
-    }
-}
-@section Styles {
-    <link href="@Url.Content("~/Content/CSS/BooksView.css")" rel="stylesheet" type="text/css" />
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    string pic = Model.picture;
 }
 
-<div id="data">
-    <label>Name : @Model.name</label>
-    <br />
-    <label>Age : @Model.age</label>
-    <br />
-    <label>E-Mail : @Model.email</label>
-    <br />
-    <label>User Type : @Model.type</label>
+<div class="row" dir="@LMS.Content.Languages.Lang_resource.dir">
+    <div class="col-sm-6 col-md-2" dir="@LMS.Content.Languages.Lang_resource.dir">
+        <img src="~/Content/ProfilePictures/@Model.picture" width="200" height="200" /> 
+        @using (Html.BeginForm("UpdateImage", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="File" name="myFile" />
+            <input type="submit" name="Submit" value="submit" />
+        }
+    </div>
+    <div class="col-sm-4 col-md-4" dir="@LMS.Content.Languages.Lang_resource.dir">
+        <blockquote>
+            <p>@Model.UserName</p> <small><cite title="Source Title">@LMS.Content.Languages.Lang_resource.Address  <i class="glyphicon glyphicon-map-marker"></i></cite></small>
+        </blockquote>
+        <p>
+            @LMS.Content.Languages.Lang_resource.Email <i class="glyphicon glyphicon-envelope"></i> @Model.Email
+            @LMS.Content.Languages.Lang_resource.DOB<br /> <i class="glyphicon glyphicon-gift"></i>@Model.DOB
+        </p>
+    </div>
 </div>
+
 

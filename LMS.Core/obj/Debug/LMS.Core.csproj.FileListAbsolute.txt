@@ -33,3 +33,9 @@ D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\System.Web.Http.WebHost.dl
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\System.Net.Http.Formatting.xml
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\System.Web.Http.xml
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\System.Web.Http.WebHost.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS.Core\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml

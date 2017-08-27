@@ -62,3 +62,7 @@ D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\LMS.csproj.GenerateResource.Cac
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\obj\Debug\ar-EG\LMS.resources.dll
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\System.Web.Http.WebHost.dll
 D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\System.Web.Http.WebHost.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\Boody\CESS\Projects\ASP.NET\LMS\LMS\bin\Microsoft.AspNet.SignalR.SystemWeb.xml

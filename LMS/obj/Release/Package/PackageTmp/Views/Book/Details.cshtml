@@ -1,0 +1,40 @@
+﻿@model LMS.Models.Book
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    int num = 0;
+    int sum = 0;
+    double av = 0;
+}
+<h3>@LMS.Content.Languages.Lang_resource.Description: </h3>
+<p>@Model.details</p>
+<br />
+<h3>Rating :</h3>
+<table class="table table-striped custab">
+    <tr>
+        <th>@LMS.Content.Languages.Lang_resource.UserName </th>
+        <th>@LMS.Content.Languages.Lang_resource.Rating</th>
+        <th>@LMS.Content.Languages.Lang_resource.Review</th>
+    </tr>
+    @foreach (var r in ViewBag.Ratings)
+    {
+        <tr>
+            <td>@r.user.UserName</td>
+            <td>@r.rating</td>
+            <td>@r.review</td>
+        </tr>
+        num++;
+        sum+=r.rating;
+    }
+    @{
+        if(sum==0 && num==0)
+        {
+        }
+        else
+        {
+            av = sum / num;
+        }
+    }
+
+</table>
+<h3>Overall Rating : @av / 5 </h3>
